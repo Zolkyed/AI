@@ -21,7 +21,7 @@ These settings are managed on GitHub rather than enforced by repository files. E
 
 ## Required Checks
 
-- [ ] Require `ci` and `lint-pr-title` on pull requests.
+- [ ] Require `ci`, `lint-branch-name`, and `lint-pr-title` on pull requests.
 
 Add a required check only after it exists and has completed successfully. Requiring a check that never runs blocks every pull request.
 

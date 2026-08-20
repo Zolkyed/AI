@@ -1,0 +1,45 @@
+name: PR Conventions
+
+on:
+  pull_request:
+    types: [opened, reopened, edited, synchronize]
+
+permissions: {}
+
+jobs:
+  lint-branch-name:
+    runs-on: ubuntu-latest
+    steps:
+      - name: validate branch name
+        env:
+          BRANCH_NAME: ${{ github.head_ref }}
+        run: |
+          case "$BRANCH_NAME" in
+            dependabot/*|release-please--branches--*) exit 0 ;;
+          esac
+
+          if [[ ! "$BRANCH_NAME" =~ ^(build|chore|ci|docs|feat|fix|perf|refactor|test)/[0-9]+-[a-z0-9]+(-[a-z0-9]+)*$ ]]; then
+            echo "Invalid branch name: $BRANCH_NAME"
+            echo "Expected: <type>/<issue-number>-<kebab-case-description>"
+            exit 1
+          fi
+
+  lint-pr-title:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: read
+    steps:
+      - uses: amannn/action-semantic-pull-request@48f256284bd46cdaab1048c3721360e808335d50 # v6.1.1
+        with:
+          types: |
+            build
+            chore
+            ci
+            docs
+            feat
+            fix
+            perf
+            refactor
+            test
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -9,21 +9,6 @@ jobs:
   ci:
     runs-on: ubuntu-latest
     steps:
-      - name: validate branch name
-        if: github.event_name == 'pull_request'
-        env:
-          BRANCH_NAME: ${{ github.head_ref }}
-        run: |
-          case "$BRANCH_NAME" in
-            dependabot/*|release-please--branches--*) exit 0 ;;
-          esac
-
-          if [[ ! "$BRANCH_NAME" =~ ^(build|chore|ci|docs|feat|fix|perf|refactor|test)/[0-9]+-[a-z0-9]+(-[a-z0-9]+)*$ ]]; then
-            echo "Invalid branch name: $BRANCH_NAME"
-            echo "Expected: <type>/<issue-number>-<kebab-case-description>"
-            exit 1
-          fi
-
       - uses: actions/checkout@v7
 
       - uses: actions/setup-node@v7
