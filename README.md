@@ -1,24 +1,8 @@
-# Core
-
-![AI coding agent robot](docs/assets/ai-agent-example.svg)
+<p align="center">
+  <img src="docs/assets/ai-agent-example.svg" alt="AI coding agent robot" width="200">
+</p>
 
 Reusable, AI-agent-ready TypeScript repository with issue-driven worktrees, canonical verification, enforced Git conventions, CI, and release automation.
-
-| Tool           | Responsibility                                                    |
-| -------------- | ----------------------------------------------------------------- |
-| Git            | Source control, branches, commits, worktrees, merges, and rebases |
-| VS Code        | Editor and native Git/worktree interface                          |
-| GitHub         | Issues, pull requests, Actions, and repository hosting            |
-| `gh`           | GitHub CLI for issues, pull requests, and Actions                 |
-| `npx` + Skills | AI workflows and reusable instructions                            |
-| Claude Code    | AI coding agent                                                   |
-
-## Requirements
-
-- Node.js 22 or newer
-- npm
-- Git
-- [GitHub CLI (`gh`)](https://cli.github.com/) installed and authenticated for issue, pull request, and Actions workflows
 
 ## Workflow
 
