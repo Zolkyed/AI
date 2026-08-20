@@ -4,7 +4,7 @@ set -euo pipefail
 
 if [[ $# -ne 3 ]]; then
   echo "Usage: $0 <type> <issue-number> <kebab-case-description>" >&2
-  echo "Example: $0 feat 123 feature-x" >&2
+  echo "Example: cd \"\$(./scripts/worktree-create feat 123 feature-x)\"" >&2
   exit 2
 fi
 
@@ -24,7 +24,7 @@ repo_name="$(basename "$repo_root")"
 branch="$change_type/$issue_number-$description"
 worktree="$(dirname "$repo_root")/$repo_name-$issue_number-$description"
 
-git fetch origin main
-git worktree add -b "$branch" "$worktree" origin/main
+git fetch origin main >&2
+git worktree add -b "$branch" "$worktree" origin/main >&2
 
-printf "Worktree ready: %s\nBranch: %s\n" "$worktree" "$branch"
+printf "%s\n" "$worktree"
