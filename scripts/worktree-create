@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+if [[ $# -ne 3 ]]; then
+  echo "Usage: $0 <type> <issue-number> <kebab-case-description>" >&2
+  echo "Example: $0 feat 123 feature-x" >&2
+  exit 2
+fi
+
+change_type="$1"
+issue_number="$2"
+description="$3"
+
+[[ "$change_type" =~ ^(build|chore|ci|docs|feat|fix|perf|refactor|test)$ ]] ||
+  { echo "Invalid change type: $change_type" >&2; exit 2; }
+[[ "$issue_number" =~ ^[1-9][0-9]*$ ]] ||
+  { echo "Invalid issue number: $issue_number" >&2; exit 2; }
+[[ "$description" =~ ^[a-z0-9]+(-[a-z0-9]+)*$ ]] ||
+  { echo "Description must use lowercase kebab-case" >&2; exit 2; }
+
+repo_root="$(git rev-parse --show-toplevel)"
+repo_name="$(basename "$repo_root")"
+branch="$change_type/$issue_number-$description"
+worktree="$(dirname "$repo_root")/$repo_name-$issue_number-$description"
+
+git fetch origin main
+git worktree add -b "$branch" "$worktree" origin/main
+
+printf "Worktree ready: %s\nBranch: %s\n" "$worktree" "$branch"
