@@ -14,6 +14,11 @@ import { spawnSync } from 'node:child_process';
 import { afterEach, describe, expect, it } from 'vitest';
 
 const temporaryDirectories: string[] = [];
+const availableShells = ['bash'];
+
+if (spawnSync('zsh', ['--version']).status === 0) {
+  availableShells.push('zsh');
+}
 
 function run(command: string, args: string[], cwd: string) {
   const result = spawnSync(command, args, { cwd, encoding: 'utf8' });
@@ -60,7 +65,7 @@ afterEach(() => {
   }
 });
 
-describe.each(['bash', 'zsh'])('wt in %s', (shell) => {
+describe.each(availableShells)('wt in %s', (shell) => {
   it('creates and enters a worktree before launching WT_AGENT', () => {
     const { repository, root } = createRepository();
     const agentScript = join(root, 'agent.mjs');
