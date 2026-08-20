@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/Zolkyed/AI/compare/v1.0.0...v1.0.1) (2026-08-20)
+
+
+### 🔧 Maintenance
+
+* add shared Claude Code configuration ([#7](https://github.com/Zolkyed/AI/issues/7)) ([c71add7](https://github.com/Zolkyed/AI/commit/c71add7673da4e9623895dabb8b89b06e3df2b89))
+
 ## 1.0.0 (2026-08-20)
 
 
