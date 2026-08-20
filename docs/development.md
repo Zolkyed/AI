@@ -48,6 +48,8 @@ CI runs `npm run verify`, so a local passing result should match the repository'
 
 ## Worktrees
 
+For the complete issue-to-session lifecycle used by AI agents, see [`ai.md`](ai.md#workflow).
+
 Use one branch and worktree for sequential changes:
 
 ```text
