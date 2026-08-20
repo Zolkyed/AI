@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.2.0](https://github.com/Zolkyed/AI/compare/v1.1.0...v1.2.0) (2026-08-20)
+
+
+### 🚀 Feature Development
+
+* add worktree creation helper ([ad19ffc](https://github.com/Zolkyed/AI/commit/ad19ffc37b99162f799acb83f68db4b624db778d))
+* add wt shell helper ([6a42037](https://github.com/Zolkyed/AI/commit/6a42037a30333053e517652953336303516644ef))
+* centralize issue worktrees ([3ad1dd0](https://github.com/Zolkyed/AI/commit/3ad1dd0704f8fdfbb21bf859b17ce8b739d09603))
+* support worktree path composition ([eb5d879](https://github.com/Zolkyed/AI/commit/eb5d8793152d2172c7ff979841c8db1f4950bc6e))
+
 ## [1.1.0](https://github.com/Zolkyed/AI/compare/v1.0.2...v1.1.0) (2026-08-20)
 
 
