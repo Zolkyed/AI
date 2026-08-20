@@ -162,6 +162,36 @@ direnv allow
 
 Run `npm ci` separately in each worktree. Do not symlink or share `node_modules`, because parallel branches can require different dependency versions. The shared `.env` is visible to every approved worktree and its AI session; keep only development credentials there, never commit it, and use a worktree-local `.env` when isolation is required.
 
+### Worktree Shell Helper
+
+Source the shell helper from Bash or zsh to make `wt` available:
+
+```sh
+source /path/to/repository/scripts/worktree-shell
+```
+
+Configure an optional coding agent as a shell array before sourcing the helper. The first element is the executable and the remaining elements are its arguments:
+
+```sh
+WT_AGENT=(claude --dangerously-skip-permissions)
+source /path/to/repository/scripts/worktree-shell
+```
+
+For example, GitHub Copilot CLI can be configured with:
+
+```sh
+WT_AGENT=(copilot --yolo)
+```
+
+Create a worktree or list existing worktrees with:
+
+```sh
+wt issue26
+wt list
+```
+
+Creation fetches `origin/main`, creates a detached worktree at `.worktrees/issue26`, changes the current shell to it, approves its `.envrc` when direnv is available, and then launches `WT_AGENT`. The agent must create a convention-compliant issue branch before committing or opening a pull request. If `WT_AGENT` is unset or empty, creation and directory entry still succeed without launching a command. Arguments are passed directly without shell evaluation. Do not put credentials or secrets in `WT_AGENT`.
+
 ## CLI Command References
 
 - [GitHub Copilot CLI](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-command-reference)
