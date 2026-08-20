@@ -35,8 +35,11 @@ Add a required status check only after that check exists and has completed succe
 ## GitHub Actions
 
 - Allow GitHub Actions used by the repository and verified Marketplace actions.
+- Under **Settings → Actions → General → Workflow permissions**, keep the default workflow permission set to read-only.
+- Under the same section, enable **Allow GitHub Actions to create and approve pull requests** so Release Please can open its release pull request.
 - Give workflows the minimum permissions they require.
-- Allow GitHub Actions to create pull requests for Release Please.
+
+Release Please declares its required `contents: write` and `pull-requests: write` permissions in its workflow. Other workflows retain the read-only repository default unless they explicitly request additional access.
 
 The default `GITHUB_TOKEN` may not trigger workflows from pull requests it creates. If Release Please pull requests must run the required `ci` check, configure Release Please with an appropriate repository secret and token.
 
@@ -80,4 +83,5 @@ Add dependency review or code scanning only when its workflow is configured and 
 - [ ] The `ci` check is required and runs on pull requests.
 - [ ] Force pushes and branch deletion are blocked.
 - [ ] Available dependency and secret protection features are enabled.
+- [ ] GitHub Actions is allowed to create and approve pull requests.
 - [ ] Release Please can create pull requests and its pull requests run required checks.
