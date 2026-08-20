@@ -22,9 +22,11 @@ description="$3"
 repo_root="$(git rev-parse --show-toplevel)"
 repo_name="$(basename "$repo_root")"
 branch="$change_type/$issue_number-$description"
-worktree="$(dirname "$repo_root")/$repo_name-$issue_number-$description"
+worktree_root="${WORKTREE_ROOT:-$HOME/.worktrees}"
+worktree="$worktree_root/$repo_name/$branch"
 
 git fetch origin main >&2
+mkdir -p "$(dirname "$worktree")"
 git worktree add -b "$branch" "$worktree" origin/main >&2
 
 printf "%s\n" "$worktree"
