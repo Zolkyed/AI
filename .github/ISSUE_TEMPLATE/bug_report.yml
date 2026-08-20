@@ -1,6 +1,5 @@
 name: Bug report
 description: Report a problem or unexpected behavior
-title: ''
 labels: ['bug']
 body:
   - type: textarea
