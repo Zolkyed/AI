@@ -2,30 +2,23 @@
 
 set -euo pipefail
 
-if [[ $# -ne 3 ]]; then
-  echo "Usage: $0 <type> <issue-number> <kebab-case-description>" >&2
-  echo "Example: cd \"\$(./scripts/worktree-create feat 123 feature-x)\"" >&2
+if [[ $# -ne 1 ]]; then
+  echo "Usage: $0 <worktree-name>" >&2
+  echo "Example: cd \"\$(./scripts/worktree-create issue26)\"" >&2
   exit 2
 fi
 
-change_type="$1"
-issue_number="$2"
-description="$3"
+worktree_name="$1"
 
-[[ "$change_type" =~ ^(build|chore|ci|docs|feat|fix|perf|refactor|test)$ ]] ||
-  { echo "Invalid change type: $change_type" >&2; exit 2; }
-[[ "$issue_number" =~ ^[1-9][0-9]*$ ]] ||
-  { echo "Invalid issue number: $issue_number" >&2; exit 2; }
-[[ "$description" =~ ^[a-z0-9]+(-[a-z0-9]+)*$ ]] ||
-  { echo "Description must use lowercase kebab-case" >&2; exit 2; }
+[[ "$worktree_name" =~ ^[a-z0-9]+(-[a-z0-9]+)*$ ]] ||
+  { echo "Worktree name must use lowercase kebab-case" >&2; exit 2; }
 
 repo_root="$(dirname "$(git rev-parse --path-format=absolute --git-common-dir)")"
-branch="$change_type/$issue_number-$description"
 worktree_root="${WORKTREE_ROOT:-$repo_root/.worktrees}"
-worktree="$worktree_root/$branch"
+worktree="$worktree_root/$worktree_name"
 
 git fetch origin main >&2
-mkdir -p "$(dirname "$worktree")"
-git worktree add -b "$branch" "$worktree" origin/main >&2
+mkdir -p "$worktree_root"
+git worktree add --detach "$worktree" origin/main >&2
 
 printf "%s\n" "$worktree"
