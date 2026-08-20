@@ -34,6 +34,12 @@
 Use the change type, issue number, and a short kebab-case description:
 
 ```text
+<type>/<issue-number>-<description>
+```
+
+Supported branch types match the commit types: `build`, `chore`, `ci`, `docs`, `feat`, `fix`, `perf`, `refactor`, and `test`.
+
+```text
 feat/123-add-auth
 fix/124-token-expiration
 refactor/125-auth-service
@@ -48,6 +54,7 @@ Use Conventional Commit prefixes so Release Please can determine versions and ge
 - `feat:` for new behavior
 - `fix:` for bug fixes
 - `docs:` for documentation
+- `perf:` for performance improvements
 - `refactor:` for behavior-preserving restructuring
 - `test:` for test-only changes
 - `chore:`, `ci:`, or `build:` for maintenance work
@@ -69,3 +76,10 @@ fix(api): handle expired sessions
 docs: update setup instructions
 refactor!: replace the legacy client
 ```
+
+## Enforcement
+
+- Husky and Commitlint validate local commit messages.
+- The PR-conventions workflow validates branch names and the squash commit title that will land on `main`.
+- CI runs `npm run verify`.
+- Dependabot and Release Please branches are exempt from issue-numbered branch names.

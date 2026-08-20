@@ -1,10 +1,10 @@
 # Pull Request Review
 
-Review the linked issue, pull request description, complete diff, and CI results. Report substantive problems, not preferences already enforced by formatting or linting.
+Review the linked issue, pull request description, complete diff, and CI results. Report substantive, evidence-based problems introduced or exposed by the pull request, not preferences already enforced by automation. Do not modify code unless explicitly asked.
 
 ## Review Criteria
 
-- Acceptance criteria are satisfied when an issue is linked.
+- The linked issue's acceptance criteria are satisfied.
 - The change is correct and limited to the intended scope.
 - Failure cases, edge cases, and invalid inputs are handled.
 - Tests cover changed behavior and regressions without weakening existing coverage.
@@ -26,9 +26,10 @@ For each finding:
 
 - Explain the concrete impact.
 - Reference the relevant file and line.
+- Support the finding with evidence from the diff, repository, tests, or documented behavior.
 - Suggest a focused correction when practical.
 
-If there are no findings, state that explicitly and mention any residual risks or verification gaps.
+Do not report speculative, pre-existing, or unrelated problems as pull request findings. If there are no findings, state that explicitly and mention any residual risks or verification gaps.
 
 ## Approval
 

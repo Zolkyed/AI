@@ -1,87 +1,45 @@
 # Repository Settings
 
-This document records the recommended GitHub configuration for this repository. These settings are managed on GitHub and are not automatically enforced by files in the repository.
+These settings are managed on GitHub rather than enforced by repository files. Enable features only when they are available on the repository's plan.
 
 ## General
 
-- Set a concise repository description and relevant topics.
-- Use `main` as the default branch.
-- Enable Issues.
-- Automatically delete head branches after pull requests are merged.
+- [ ] Set a concise description and relevant topics.
+- [ ] Use `main` as the default branch.
+- [ ] Enable Issues.
+- [ ] Delete head branches automatically after merge.
 
 ## Pull Requests
 
-- Enable squash merging.
-- Set the default squash commit message to the pull request title.
-- Disable merge commits.
-- Disable rebase merging.
+- [ ] Require pull requests for changes to `main`.
+- [ ] Enable squash merging only.
+- [ ] Use the pull request title as the squash commit message.
+- [ ] Require Conventional Commit pull request titles.
+- [ ] Use zero approvals for solo work or at least one for team work.
+- [ ] Require conversation resolution and linear history.
+- [ ] Block force pushes and branch deletion.
 
-Pull request titles should follow Conventional Commits because the squash title becomes the commit on `main` and is interpreted by Release Please.
+## Required Checks
 
-## Ruleset for `main`
+- [ ] Require `ci`, `lint-branch-name`, and `lint-pr-title` on pull requests.
 
-Create an active branch ruleset targeting `main` with these rules:
+Add a required check only after it exists and has completed successfully. Requiring a check that never runs blocks every pull request.
 
-- Require a pull request before merging.
-- Require zero approvals for a solo repository or one approval for a team repository.
-- Require the `ci` status check to pass.
-- Require conversation resolution before merging.
-- Require linear history.
-- Restrict branch deletion.
-- Block force pushes.
+## GitHub Actions and Releases
 
-Add a required status check only after that check exists and has completed successfully. Requiring a check that never runs can block every pull request.
+- [ ] Keep the default workflow permission read-only.
+- [ ] Allow GitHub Actions to create pull requests for Release Please.
+- [ ] Grant additional permissions only in the workflow or job that needs them.
+- [ ] Keep Release Please enabled on pushes to `main`.
+- [ ] Keep `package.json` and `.release-please-manifest.json` versions synchronized.
 
-## GitHub Actions
+Release Please declares `contents: write` and `pull-requests: write` in its workflow. Pull requests created with the default `GITHUB_TOKEN` may not trigger `ci`; use a GitHub App or appropriately scoped repository secret when release pull requests must run required checks.
 
-- Allow GitHub Actions used by the repository and verified Marketplace actions.
-- Under **Settings → Actions → General → Workflow permissions**, keep the default workflow permission set to read-only.
-- Under the same section, enable **Allow GitHub Actions to create and approve pull requests** so Release Please can open its release pull request.
-- Give workflows the minimum permissions they require.
+## Review and Security
 
-Release Please declares its required `contents: write` and `pull-requests: write` permissions in its workflow. Other workflows retain the read-only repository default unless they explicitly request additional access.
+- [ ] Configure automatic review for the selected AI provider when wanted.
+- [ ] Require maintainers to validate AI findings before merge.
+- [ ] Enable the dependency graph, Dependabot alerts, and Dependabot security updates.
+- [ ] Enable secret scanning and push protection when available.
 
-The default `GITHUB_TOKEN` may not trigger workflows from pull requests it creates. If Release Please pull requests must run the required `ci` check, configure Release Please with an appropriate repository secret and token.
-
-## AI Pull Request Review
-
-Enable automatic pull request review for the selected AI provider:
-
-- GitHub Copilot: configure automatic Copilot code review through the `main` ruleset.
-- Claude Code: install the GitHub App, grant access to this repository, and configure its pull request review trigger.
-
-Automated reviewers should follow [`review.md`](review.md). AI review supplements required CI and human judgment; it does not replace them.
-
-## Security
-
-Enable the features available for the repository and GitHub plan:
-
-- Dependency graph
-- Dependabot alerts
-- Dependabot security updates
-- Secret scanning
-- Push protection
-
-Add dependency review or code scanning only when its workflow is configured and maintained. Do not require a security check that does not exist.
-
-## Release Automation
-
-- Keep Release Please enabled on pushes to `main`.
-- Use Conventional Commit pull request titles.
-- Keep `package.json` and `.release-please-manifest.json` versions synchronized.
-- Review and merge the Release Please pull request when ready to publish a release.
-
-## Verification Checklist
-
-- [ ] `main` is the default branch.
-- [ ] Pull requests are required for changes to `main`.
-- [ ] Required approvals are set to zero for solo work or one for team work.
-- [ ] Squash merging is the only enabled merge method.
-- [ ] Squash commits use the pull request title.
-- [ ] Merged head branches are deleted automatically.
-- [ ] The `main` ruleset is active.
-- [ ] The `ci` check is required and runs on pull requests.
-- [ ] Force pushes and branch deletion are blocked.
-- [ ] Available dependency and secret protection features are enabled.
-- [ ] GitHub Actions is allowed to create and approve pull requests.
-- [ ] Release Please can create pull requests and its pull requests run required checks.
+Automated reviewers follow [`review.md`](review.md). Add dependency review or code scanning only when its workflow is configured and maintained; never require a check that does not exist.

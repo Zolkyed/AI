@@ -39,6 +39,7 @@ Run `npm run verify` before considering a change complete.
 - Do not work directly on `main`.
 - Use the branch, commit, and pull request title conventions documented in [`docs/conventions.md`](docs/conventions.md).
 - Link pull requests to their issue, such as `Closes #123`.
+- Never bypass Git hooks with `--no-verify`.
 - Do not merge pull requests, delete branches, force-push, or rewrite shared history unless explicitly requested.
 - Never hand-edit `package-lock.json`; update dependencies with npm and commit the resulting lockfile with `package.json`.
 

@@ -165,8 +165,6 @@ Command availability varies by agent and CLI. Consult the provider documentation
 - [Official MCP documentation](https://modelcontextprotocol.io/docs/getting-started/intro)
 - [Official MCP Registry](https://modelcontextprotocol.io/registry/about)
 
-Prefer native repository tools and focused CLIs when they provide the same capability with less configuration and context overhead. Add an MCP server only when the workflow benefits from structured external data, persistent state, or capabilities that the available CLIs do not provide.
-
 ## CLI
 
 - [`gh`](https://cli.github.com/manual/) — GitHub issues, pull requests, reviews, and Actions.
