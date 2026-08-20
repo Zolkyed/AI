@@ -46,41 +46,6 @@ verify → check + build
 
 CI runs `npm run verify`, so a local passing result should match the repository's completion gate.
 
-## Worktrees
-
-For the complete issue-to-session lifecycle used by AI agents, see [`ai.md`](ai.md#workflow).
-
-Use one branch and worktree for sequential changes:
-
-```text
-issue → implement → verify → merge → next issue
-```
-
-Use separate worktrees only for genuinely independent or parallel issues:
-
-```text
-issue-a → worktree-a ┐
-issue-b → worktree-b ├─ parallel
-issue-c → worktree-c ┘
-```
-
-Recommended local Git configuration:
-
-```sh
-git config extensions.worktreeConfig true
-git config --global push.autoSetupRemote true
-```
-
-For fully unattended automation, GitHub CLI prompts can also be disabled:
-
-```sh
-gh config set prompt disabled
-```
-
-This is optional. Keep prompts enabled for interactive development, and prefer explicit non-interactive flags in scripts and agent commands.
-
-Keep each worktree scoped to one issue and branch. Integrate dependent changes in dependency order.
-
 ## Debugging
 
 Build the project, then use the **Debug application** configuration in VS Code. It launches `dist/index.js` with source maps enabled.
