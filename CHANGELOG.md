@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.0](https://github.com/Zolkyed/AI/compare/v1.0.2...v1.1.0) (2026-08-20)
+
+
+### 🚀 Feature Development
+
+* add polyglot worktree environments ([2b4547a](https://github.com/Zolkyed/AI/commit/2b4547aea1a27045499b0ecdd704053086d15ed1))
+
+
+### 📝 Documentation
+
+* streamline README introduction ([c1f5622](https://github.com/Zolkyed/AI/commit/c1f5622580cd5765884c84ef10b54cbc3dea576d))
+
 ## [1.0.2](https://github.com/Zolkyed/AI/compare/v1.0.1...v1.0.2) (2026-08-20)
 
 
