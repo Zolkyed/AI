@@ -9,6 +9,8 @@
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
   "git.autoRepositoryDetection": "subFolders",
+  "git.detectWorktrees": true,
   "git.repositoryScanMaxDepth": 4,
+  "scm.alwaysShowRepositories": true,
   "typescript.tsdk": "node_modules/typescript/lib"
 }
