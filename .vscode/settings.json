@@ -4,8 +4,11 @@
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
+  "explorer.excludeGitIgnore": false,
   "files.eol": "\n",
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
+  "git.autoRepositoryDetection": "subFolders",
+  "git.repositoryScanMaxDepth": 4,
   "typescript.tsdk": "node_modules/typescript/lib"
 }

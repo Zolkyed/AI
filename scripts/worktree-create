@@ -19,11 +19,10 @@ description="$3"
 [[ "$description" =~ ^[a-z0-9]+(-[a-z0-9]+)*$ ]] ||
   { echo "Description must use lowercase kebab-case" >&2; exit 2; }
 
-repo_root="$(git rev-parse --show-toplevel)"
-repo_name="$(basename "$repo_root")"
+repo_root="$(dirname "$(git rev-parse --path-format=absolute --git-common-dir)")"
 branch="$change_type/$issue_number-$description"
-worktree_root="${WORKTREE_ROOT:-$HOME/.worktrees}"
-worktree="$worktree_root/$repo_name/$branch"
+worktree_root="${WORKTREE_ROOT:-$repo_root/.worktrees}"
+worktree="$worktree_root/$branch"
 
 git fetch origin main >&2
 mkdir -p "$(dirname "$worktree")"
