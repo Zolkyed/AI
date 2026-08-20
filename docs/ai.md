@@ -115,6 +115,35 @@ After merge:
 - Prune stale remote-tracking branches.
 - Keep branches for active pull requests or unmerged work.
 
+## Worktrees
+
+Use one branch and worktree for sequential changes:
+
+```text
+issue → implement → verify → merge → next issue
+```
+
+Use separate worktrees only for genuinely independent or parallel issues:
+
+```text
+issue-a → worktree-a ┐
+issue-b → worktree-b ├─ parallel
+issue-c → worktree-c ┘
+```
+
+Recommended local Git configuration:
+
+```sh
+git config extensions.worktreeConfig true
+git config --global push.autoSetupRemote true
+```
+
+For fully unattended automation, GitHub CLI prompts can also be disabled:
+
+```sh
+gh config set prompt disabled
+```
+
 ## CLI Command References
 
 - [GitHub Copilot CLI](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-command-reference)
@@ -156,6 +185,7 @@ Command availability varies by agent and CLI. Consult the provider documentation
 ## Skills
 
 - [Agent Skills directory](https://www.skills.sh/)
+- [Zolkyed skills](https://github.com/Zolkyed/skills)
 - [Agent Skills specification](https://agentskills.io/specification)
 - [Skills CLI documentation](https://www.skills.sh/docs/cli)
 
