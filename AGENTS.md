@@ -3,6 +3,7 @@
 ## Read First
 
 - Follow the setup and workflow in [`docs/development.md`](docs/development.md).
+- Follow the issue, session, worktree, and pull request lifecycle in [`docs/ai.md`](docs/ai.md#workflow).
 - Follow the coding and Git conventions in [`docs/conventions.md`](docs/conventions.md).
 - Consult [`docs/architecture/README.md`](docs/architecture/README.md) before changing module boundaries or introducing new architectural patterns.
 - Use [`docs/review.md`](docs/review.md) when reviewing a pull request.
@@ -20,7 +21,8 @@ Run `npm run verify` before considering a change complete.
 ## Scope
 
 - Work only in the current branch and worktree.
-- Keep each change scoped to its linked issue or requested task.
+- Ensure every implementation task corresponds to a GitHub issue.
+- Keep each change scoped to its linked issue.
 - Inspect the existing implementation and current Git status before editing.
 - Do not modify unrelated files or perform unrelated refactoring.
 - Preserve public behavior unless the task explicitly changes it.
