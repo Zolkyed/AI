@@ -1,0 +1,16 @@
+# Source this file from Bash, Git Bash, or zsh to make `wt` available.
+wt() {
+  local main worktree_path
+
+  main="$(dirname "$(git rev-parse --path-format=absolute --git-common-dir)")" ||
+    return
+
+  worktree_path="$(cd "$main" && ./scripts/worktree-create "$@")" ||
+    return
+
+  cd "$worktree_path" || return
+
+  if command -v direnv >/dev/null 2>&1 && [[ -f .envrc ]]; then
+    direnv allow
+  fi
+}
