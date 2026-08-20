@@ -1,0 +1,58 @@
+name: Bug report
+description: Report a problem or unexpected behavior
+title: ""
+labels: ["bug"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Summarize the problem and its impact.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps-to-reproduce
+    attributes:
+      label: Steps to Reproduce
+      description: Provide the smallest reliable sequence that demonstrates the problem.
+      placeholder: |
+        1. Go to ...
+        2. Run ...
+        3. Observe ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected Behavior
+      description: Describe what should have happened.
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual-behavior
+    attributes:
+      label: Actual Behavior
+      description: Describe what happened instead, including relevant errors or logs.
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Provide relevant versions, operating system, browser, device, or configuration.
+      placeholder: |
+        - Version or commit:
+        - Operating system:
+        - Browser or runtime:
+    validations:
+      required: true
+
+  - type: textarea
+    id: context-impact
+    attributes:
+      label: Context / Impact
+      description: Explain when the problem began, who it affects, and any known workaround.

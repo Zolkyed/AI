@@ -1,0 +1,64 @@
+name: Feature request
+description: Propose a change or new capability
+title: ""
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Describe the requested change.
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Explain the background, motivation, or relevant constraints.
+    validations:
+      required: true
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies
+      description: >
+        List prerequisite issues using #issue-number so they link automatically
+        and can be parsed programmatically.
+      placeholder: |
+        Depends on: #12
+        Blocks: #15
+
+  - type: textarea
+    id: files-touched
+    attributes:
+      label: Files / Modules Touched (expected)
+      description: >
+        Expected files or modules this will change. Used to flag overlap
+        with other active worktrees before implementation starts.
+      placeholder: |
+        - path/to/file.ts — what changes here
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance Criteria
+      description: List the conditions that must be met for this issue to be complete.
+      placeholder: |
+        - [ ] Criterion one
+        - [ ] Criterion two
+    validations:
+      required: true
+
+  - type: textarea
+    id: out-of-scope
+    attributes:
+      label: Out of Scope
+      description: List related work that is intentionally excluded from this issue.
+
+  - type: textarea
+    id: implementation-notes
+    attributes:
+      label: Implementation Notes
+      description: Add technical guidance, constraints, dependencies, or relevant links.
