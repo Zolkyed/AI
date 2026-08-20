@@ -1,5 +1,7 @@
 # Core
 
+![AI coding agent robot](docs/assets/ai-agent-example.svg)
+
 Reusable, AI-agent-ready TypeScript repository with issue-driven worktrees, canonical verification, enforced Git conventions, CI, and release automation.
 
 | Tool           | Responsibility                                                    |

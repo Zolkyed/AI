@@ -185,6 +185,7 @@ Command availability varies by agent and CLI. Consult the provider documentation
 ## Skills
 
 - [Agent Skills directory](https://www.skills.sh/)
+- [Zolkyed skills](https://github.com/Zolkyed/skills)
 - [Agent Skills specification](https://agentskills.io/specification)
 - [Skills CLI documentation](https://www.skills.sh/docs/cli)
 
