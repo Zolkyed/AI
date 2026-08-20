@@ -144,6 +144,24 @@ For fully unattended automation, GitHub CLI prompts can also be disabled:
 gh config set prompt disabled
 ```
 
+### Polyglot Environments with direnv
+
+The committed [`.envrc`](../.envrc) makes ignored development environments available when an AI session enters a worktree:
+
+- The main worktree's `.env` supplies shared environment variables.
+- A secondary worktree's `.env` can override shared values.
+- The main worktree's `.venv` is reused for Python when it exists.
+- `node_modules/.bin` comes from the active worktree, keeping Node dependencies isolated between branches.
+- [mise](https://mise.jdx.dev/) activates any runtimes pinned by the repository.
+
+Install [direnv](https://direnv.net/docs/installation.html), add its hook to the interactive shell, and approve the committed configuration in each worktree:
+
+```sh
+direnv allow
+```
+
+Run `npm ci` separately in each worktree. Do not symlink or share `node_modules`, because parallel branches can require different dependency versions. The shared `.env` is visible to every approved worktree and its AI session; keep only development credentials there, never commit it, and use a worktree-local `.env` when isolation is required.
+
 ## CLI Command References
 
 - [GitHub Copilot CLI](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-command-reference)
