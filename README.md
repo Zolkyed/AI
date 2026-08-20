@@ -1,46 +1,21 @@
-# CLI command references
+# Core
 
-- GitHub Copilot CLI: https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-command-reference
-- ChatGPT developer commands: https://learn.chatgpt.com/docs/developer-commands?surface=cli
-- Claude Code commands: https://code.claude.com/docs/en/commands
+| Tool           | Responsibility                                                    |
+| -------------- | ----------------------------------------------------------------- |
+| Git            | Source control, branches, commits, worktrees, merges, and rebases |
+| VS Code        | Editor and native Git/worktree interface                          |
+| GitHub         | Issues, pull requests, Actions, and repository hosting            |
+| `gh`           | GitHub CLI for issues, pull requests, and Actions                 |
+| `npx` + Skills | AI workflows and reusable instructions                            |
+| Claude Code    | AI coding agent                                                   |
 
+## Requirements
 
-| Command | Description |
-| --- | --- |
-| `/app` | Continue the session in the desktop app. |
-| `/clear` | Clear the current conversation and start a new one. |
-| `/compact` | Summarize conversation history to reduce context usage. |
-| `/copy` | Copy a recent response or selected code block. |
-| `/diff` | View or review changes in the working directory. |
-| `/exit` | Exit the CLI. |
-| `/feedback` | Send product feedback and optional diagnostic information. |
-| `/fork` | Create a new session from the current conversation. |
-| `/goal` | Set or manage a persistent task goal. |
-| `/ide` | Connect to or manage an IDE integration. |
-| `/init` | Create repository-level agent instructions. |
-| `/logout` | Sign out and clear local credentials. |
-| `/mcp` | Manage MCP servers, connections, and tools. |
-| `/model` | Select the active model and its configuration. |
-| `/new` | Start a new conversation. |
-| `/permissions` | View or change permission and approval settings. |
-| `/plan` | Enter planning mode before implementation. |
-| `/quit` | Exit the CLI. |
-| `/rename` | Rename the current session. |
-| `/resume` | Resume a previous session. |
-| `/review` | Review code changes. |
-| `/skills` | Browse and manage available skills. |
-| `/statusline` | Configure the terminal status line. |
-| `/theme` | Select the terminal or syntax-highlighting theme. |
-| `/usage` | View usage, limits, or cost information. |
+- Node.js 22 or newer
+- npm
+- Git
+- [GitHub CLI (`gh`)](https://cli.github.com/) installed and authenticated for issue, pull request, and Actions workflows
 
-## Skills
+## Documentation
 
-- Agent Skills directory: https://www.skills.sh/
-- Agent Skills specification: https://agentskills.io/specification
-- Skills CLI documentation: https://www.skills.sh/docs/cli
-
-## MCP
-
-- MCP server directory: https://mcp.directory/
-- Official MCP documentation: https://modelcontextprotocol.io/docs/getting-started/intro
-- Official MCP Registry: https://modelcontextprotocol.io/registry/about
+See the [documentation index](docs/README.md) for development, conventions, architecture, API, repository settings, review guidance, and AI tooling references.

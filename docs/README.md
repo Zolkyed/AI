@@ -1,0 +1,23 @@
+# Documentation
+
+Use this index to find the repository's authoritative development and design guidance.
+
+## Development
+
+- [Development workflow](development.md) — setup, commands, verification, and debugging
+- [Conventions](conventions.md) — TypeScript, naming, testing, branches, commits, and pull request titles
+- [Pull request review](review.md) — review criteria, finding severity, and approval requirements
+- [Repository settings](repository-settings.md) — GitHub merge, ruleset, Actions, security, and release configuration
+- [Tooling reference](tooling.md) — AI CLI commands, Skills, and MCP resources
+
+## Architecture
+
+- [Architecture overview](architecture/README.md) — system structure and architecture documentation
+- [Architecture decisions](architecture/decisions/README.md) — ADR naming, status, and template
+
+## API
+
+- [API documentation](api/README.md) — API contracts and usage guidance
+- [HTTP requests](api/requests/README.md) — conventions for runnable manual `.http` examples
+
+Add new documents only when they contain durable project knowledge that cannot be reliably inferred from the code or configuration.
