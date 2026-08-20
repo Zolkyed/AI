@@ -4,7 +4,7 @@ import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
   {
-    ignores: ['coverage/', 'dist/'],
+    ignores: ['.worktrees/', 'coverage/', 'dist/'],
   },
   eslint.configs.recommended,
   ...tseslint.configs.recommended,

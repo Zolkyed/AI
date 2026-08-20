@@ -5,6 +5,43 @@ wt() {
   main="$(dirname "$(git rev-parse --path-format=absolute --git-common-dir)")" ||
     return
 
+  if [[ "${1:-}" == "list" ]]; then
+    shift
+    git -C "$main" worktree list "$@"
+    return
+  fi
+
+  if [[ "${1:-}" == "remove" ]]; then
+    local current branch
+
+    shift
+    if [[ $# -ne 0 ]]; then
+      echo "Usage: wt remove" >&2
+      return 2
+    fi
+
+    current="$(git rev-parse --show-toplevel)" || return
+    if [[ "$current" == "$main" ]]; then
+      echo "Cannot remove the main worktree" >&2
+      return 1
+    fi
+
+    branch="$(git -C "$current" symbolic-ref --quiet --short HEAD)" || {
+      echo "Cannot remove a detached worktree with wt remove" >&2
+      return 1
+    }
+
+    if [[ -n "$(git -C "$current" status --porcelain)" ]]; then
+      echo "Cannot remove a worktree with uncommitted changes" >&2
+      return 1
+    fi
+
+    cd "$main" || return
+    git worktree remove "$current" || return
+    git branch -d "$branch"
+    return
+  fi
+
   worktree_path="$(cd "$main" && ./scripts/worktree-create "$@")" ||
     return
 
