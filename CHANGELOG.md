@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.0.2](https://github.com/Zolkyed/AI/compare/v1.0.1...v1.0.2) (2026-08-20)
+
+
+### 📝 Documentation
+
+* define AI issue workflow ([bc7dba3](https://github.com/Zolkyed/AI/commit/bc7dba371bfce7c760f13d29749462fccd4cf436))
+* move worktree guidance to AI workflow ([c3ce937](https://github.com/Zolkyed/AI/commit/c3ce937891d929fb241557987ee848f122836309))
+* update repository overview ([a402c02](https://github.com/Zolkyed/AI/commit/a402c02b81b21c7cadb180f57f9d122eb668381c))
+
+
+### 🔧 Maintenance
+
+* enforce repository conventions ([#12](https://github.com/Zolkyed/AI/issues/12)) ([d25d762](https://github.com/Zolkyed/AI/commit/d25d762c3650f167344d616d497e8fec550457e9))
+
 ## [1.0.1](https://github.com/Zolkyed/AI/compare/v1.0.0...v1.0.1) (2026-08-20)
 
 
