@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 # Source this file from Bash, Git Bash, or zsh to make `wt` available.
 wt() {
   local main worktree_path

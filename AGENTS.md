@@ -3,10 +3,9 @@
 ## Read First
 
 - Follow the setup and workflow in [`docs/development.md`](docs/development.md).
-- Follow the issue, session, worktree, and pull request lifecycle in [`docs/ai.md`](docs/ai.md#workflow).
+- Follow the issue, session, worktree, and pull request lifecycle in [`docs/ai.md`](docs/ai.md).
 - Follow the coding and Git conventions in [`docs/conventions.md`](docs/conventions.md).
 - Consult [`docs/architecture/README.md`](docs/architecture/README.md) before changing module boundaries or introducing new architectural patterns.
-- Use [`docs/review.md`](docs/review.md) when reviewing a pull request.
 
 ## Commands
 

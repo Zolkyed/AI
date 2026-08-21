@@ -95,7 +95,7 @@ describe.each(availableShells)('wt in %s', (shell) => {
     });
 
     expect(result.status, result.stderr).toBe(0);
-    const expectedWorktree = join(repository, '.worktrees', 'issue26');
+    const expectedWorktree = `${repository}.issue26`;
     expect(result.stdout).toBe(expectedWorktree);
     expect(JSON.parse(readFileSync(outputPath, 'utf8'))).toEqual({
       cwd: expectedWorktree,
@@ -120,7 +120,7 @@ describe.each(availableShells)('wt in %s', (shell) => {
     });
 
     expect(result.status, result.stderr).toBe(0);
-    expect(result.stdout).toBe(join(repository, '.worktrees', 'another-task'));
+    expect(result.stdout).toBe(`${repository}.another-task`);
   });
 
   it('retains wt list and treats remove as a worktree name', () => {
@@ -142,6 +142,6 @@ describe.each(availableShells)('wt in %s', (shell) => {
     expect(listResult.status, listResult.stderr).toBe(0);
     expect(listResult.stdout).toContain(`worktree ${repository}`);
     expect(removeResult.status, removeResult.stderr).toBe(0);
-    expect(removeResult.stdout).toBe(join(repository, '.worktrees', 'remove'));
+    expect(removeResult.stdout).toBe(`${repository}.remove`);
   });
 });

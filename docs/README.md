@@ -5,10 +5,10 @@ Use this index to find the repository's authoritative development and design gui
 ## Development
 
 - [Development workflow](development.md) — setup, commands, verification, and debugging
+- [Developer settings](settings.md) — Git and GitHub automation settings
 - [Conventions](conventions.md) — TypeScript, naming, testing, branches, commits, and pull request titles
-- [Pull request review](review.md) — review criteria, finding severity, and approval requirements
-- [Repository settings](repository-settings.md) — GitHub merge, ruleset, Actions, security, and release configuration
-- [AI workflow and tooling](ai.md) — agent workflow, CLI commands, Skills, and MCP resources
+- [Repository settings](repository-settings.md) — GitHub merge, ruleset, Actions, and security configuration
+- [AI workflow](ai.md) — issue sessions, checkout strategy, and delivery lifecycle
 
 ## Architecture
 

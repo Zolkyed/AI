@@ -1,45 +1,53 @@
 # Repository Settings
 
-These settings are managed on GitHub rather than enforced by repository files. Enable features only when they are available on the repository's plan.
+Configure these in the GitHub repository settings. Availability depends on repository visibility and plan.
 
 ## General
 
-- [ ] Set a concise description and relevant topics.
-- [ ] Use `main` as the default branch.
+- [ ] Set the description and topics.
+- [ ] Set `main` as the default branch.
 - [ ] Enable Issues.
-- [ ] Delete head branches automatically after merge.
+- [ ] Automatically delete head branches after merge.
 
 ## Pull Requests
 
-- [ ] Require pull requests for changes to `main`.
 - [ ] Enable squash merging only.
-- [ ] Use the pull request title as the squash commit message.
-- [ ] Require Conventional Commit pull request titles.
-- [ ] Use zero approvals for solo work or at least one for team work.
-- [ ] Require conversation resolution and linear history.
+- [ ] Use the pull request title as the squash commit title.
+
+## Branch Protection
+
+Protect `main` with these rules:
+
+- [ ] Require a pull request before merging.
+- [ ] Require zero approvals for solo work or at least one for team work.
+- [ ] Require `ci`, `lint-branch-name`, and `lint-pr-title` status checks.
+- [ ] Require conversation resolution.
+- [ ] Require linear history.
 - [ ] Block force pushes and branch deletion.
 
-## Required Checks
+Add required checks only after they have run successfully. Protected branches for private repositories require a supported GitHub plan.
 
-- [ ] Require `ci`, `lint-branch-name`, and `lint-pr-title` on pull requests.
+## Actions
 
-Add a required check only after it exists and has completed successfully. Requiring a check that never runs blocks every pull request.
+Under **Actions → General → Workflow permissions**:
 
-## GitHub Actions and Releases
+- [ ] Set the default `GITHUB_TOKEN` permission to read-only.
+- [ ] Allow GitHub Actions to create and approve pull requests.
 
-- [ ] Keep the default workflow permission read-only.
-- [ ] Allow GitHub Actions to create pull requests for Release Please.
-- [ ] Grant additional permissions only in the workflow or job that needs them.
-- [ ] Keep Release Please enabled on pushes to `main`.
-- [ ] Keep `package.json` and `.release-please-manifest.json` versions synchronized.
+Grant additional permissions in the workflow or job that needs them.
 
-Release Please declares `contents: write` and `pull-requests: write` in its workflow. Pull requests created with the default `GITHUB_TOKEN` may not trigger `ci`; use a GitHub App or appropriately scoped repository secret when release pull requests must run required checks.
+## Automatic AI Review
 
-## Review and Security
+Configure the selected provider:
 
-- [ ] Configure automatic review for the selected AI provider when wanted.
-- [ ] Require maintainers to validate AI findings before merge.
-- [ ] Enable the dependency graph, Dependabot alerts, and Dependabot security updates.
+- [ ] **GitHub Copilot:** Under **Rules → Rulesets**, enable **Automatically request Copilot code review** for the target branches.
+- [ ] **Claude Code Review:** In the Claude organization settings, install the Claude GitHub App, select the repository, and choose an automatic review trigger.
+
+## Security
+
+Under **Security → Advanced Security**:
+
+- [ ] Enable the dependency graph.
+- [ ] Enable Dependabot alerts.
+- [ ] Enable Dependabot security updates.
 - [ ] Enable secret scanning and push protection when available.
-
-Automated reviewers follow [`review.md`](review.md). Add dependency review or code scanning only when its workflow is configured and maintained; never require a check that does not exist.
