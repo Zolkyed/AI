@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.1](https://github.com/Zolkyed/AI/compare/v1.3.0...v1.3.1) (2026-08-21)
+
+
+### 📝 Documentation
+
+* add AI workflow commands and references ([#46](https://github.com/Zolkyed/AI/issues/46)) ([ee7be81](https://github.com/Zolkyed/AI/commit/ee7be81bfb6f7049d5d58b72456b84ecf9206c93))
+
 ## [1.3.0](https://github.com/Zolkyed/AI/compare/v1.2.0...v1.3.0) (2026-08-21)
 
 
