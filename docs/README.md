@@ -9,6 +9,7 @@ Use this index to find the repository's authoritative development and design gui
 - [Conventions](conventions.md) — TypeScript, naming, testing, branches, commits, and pull request titles
 - [Repository settings](repository-settings.md) — GitHub merge, ruleset, Actions, and security configuration
 - [AI workflow](ai.md) — issue sessions, checkout strategy, and delivery lifecycle
+- [References](references/README.md) — agent commands, skills, MCP, and supporting CLI tools
 
 ## Architecture
 
