@@ -41,6 +41,7 @@ Grant additional permissions in the workflow or job that needs them.
 Configure the selected provider:
 
 - [ ] **GitHub Copilot:** Under **Rules → Rulesets**, enable **Automatically request Copilot code review** for the target branches.
+- [ ] **Codex:** Add Codex code review to the GitHub repository or organization and enable automatic review for every pull request.
 - [ ] **Claude Code Review:** In the Claude organization settings, install the Claude GitHub App, select the repository, and choose an automatic review trigger.
 
 ## Security
