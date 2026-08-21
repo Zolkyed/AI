@@ -6,7 +6,7 @@
       "request": "launch",
       "name": "Debug application",
       "program": "${workspaceFolder}/dist/index.js",
-      "preLaunchTask": "npm: build",
+      "preLaunchTask": "pnpm: build",
       "skipFiles": ["<node_internals>/**"],
       "sourceMaps": true,
       "outFiles": ["${workspaceFolder}/dist/**/*.js"]

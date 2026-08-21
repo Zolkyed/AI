@@ -1,0 +1,10 @@
+[aliases]
+copilot = "wt switch -x 'copilot --yolo' {{args}}"
+claude = "wt switch -x 'claude --dangerously-skip-permissions' {{args}}"
+codex = "wt switch -x 'codex --dangerously-bypass-approvals-and-sandbox' {{args}}"
+
+[pre-start]
+copy = "wt step copy-ignored || true"
+python = "test -f pyproject.toml && uv sync --quiet || true"
+node = "test -f package.json && pnpm install || true"
+port = "echo 'PORT={{ branch | hash_port }}' > .env.local || true"

@@ -64,6 +64,11 @@ Command availability varies by agent, version, and plan. Consult the provider re
 
 ## CLI Tools
 
+- [`mise`](https://mise.jdx.dev/) — pinned tool versions and reproducible project environments
+- [Worktrunk (`wt`)](https://worktrunk.dev/) — Git worktree orchestration for parallel AI agents
+- [`pnpm`](https://pnpm.io/) — fast, disk-efficient Node.js dependency management
+- [`uv`](https://docs.astral.sh/uv/) — Python dependency, project, and virtual environment management
+- [`direnv`](https://direnv.net/) — automatic directory-scoped environment loading
 - [`gh`](https://cli.github.com/manual/) — GitHub issues, pull requests, reviews, and Actions
 - [`rg`](https://github.com/BurntSushi/ripgrep) — fast repository search and file discovery
 - [`jq`](https://jqlang.org/manual/) — JSON inspection and transformation

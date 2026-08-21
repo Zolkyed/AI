@@ -9,13 +9,13 @@
 
 ## Commands
 
-- Install dependencies: `npm ci`
-- Check code: `npm run check`
-- Apply automatic fixes: `npm run fix`
-- Build production output: `npm run build`
-- Complete verification: `npm run verify`
+- Install dependencies: `pnpm install --frozen-lockfile`
+- Check code: `pnpm run check`
+- Apply automatic fixes: `pnpm run fix`
+- Build production output: `pnpm run build`
+- Complete verification: `pnpm run verify`
 
-Run `npm run verify` before considering a change complete.
+Run `pnpm run verify` before considering a change complete.
 
 ## Scope
 
@@ -40,7 +40,7 @@ Run `npm run verify` before considering a change complete.
 - Link pull requests to their issue, such as `Closes #123`.
 - Never bypass Git hooks with `--no-verify`.
 - Do not merge pull requests, delete branches, force-push, or rewrite shared history unless explicitly requested.
-- Never hand-edit `package-lock.json`; update dependencies with npm and commit the resulting lockfile with `package.json`.
+- Never hand-edit `pnpm-lock.yaml`; update dependencies with pnpm and commit the resulting lockfile with `package.json`.
 
 ## Safety
 

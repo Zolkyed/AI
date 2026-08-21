@@ -6,14 +6,14 @@ Reusable, AI-agent-ready TypeScript repository with issue-driven development, ca
 
 ## Canonical Commands
 
-| Command          | Purpose                                               |
-| ---------------- | ----------------------------------------------------- |
-| `npm run check`  | Check formatting, lint, types, tests, and whitespace. |
-| `npm run fix`    | Apply automatic formatting and ESLint fixes.          |
-| `npm run build`  | Create the production build.                          |
-| `npm run verify` | Run `check` and `build`; required before a PR.        |
+| Command           | Purpose                                               |
+| ----------------- | ----------------------------------------------------- |
+| `pnpm run check`  | Check formatting, lint, types, tests, and whitespace. |
+| `pnpm run fix`    | Apply automatic formatting and ESLint fixes.          |
+| `pnpm run build`  | Create the production build.                          |
+| `pnpm run verify` | Run `check` and `build`; required before a PR.        |
 
-CI runs `npm run verify`, so local and remote completion gates are identical.
+CI runs `pnpm run verify`, so local and remote completion gates are identical.
 
 ## Quality Gates
 

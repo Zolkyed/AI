@@ -81,5 +81,5 @@ refactor!: replace the legacy client
 
 - Husky and Commitlint validate local commit messages.
 - The PR-conventions workflow validates branch names and the squash commit title that will land on `main`.
-- CI runs `npm run verify`.
+- CI runs `pnpm run verify`.
 - Dependabot and Release Please branches are exempt from issue-numbered branch names.

@@ -4,6 +4,7 @@
   "private": true,
   "description": "Reusable TypeScript repository template for AI-assisted development.",
   "type": "module",
+  "packageManager": "pnpm@11.22.0",
   "engines": {
     "node": ">=22"
   },
@@ -11,13 +12,13 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint . --max-warnings 0",
-    "fix": "npm run format && eslint . --fix",
+    "fix": "pnpm run format && eslint . --fix",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "check": "npm run format:check && npm run lint && npm run typecheck && npm run test && git diff --check",
+    "check": "pnpm run format:check && pnpm run lint && pnpm run typecheck && pnpm run test && git diff --check",
     "build": "tsc -p tsconfig.build.json",
-    "verify": "npm run check && npm run build",
+    "verify": "pnpm run check && pnpm run build",
     "prepare": "husky"
   },
   "lint-staged": {
