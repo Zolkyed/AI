@@ -1,28 +1,71 @@
 # AI Workflow
 
-```text
-plan → issues → choose checkout → revalidate → implement → verify → PR → merge → clean up
-```
-
-For a small, isolated change with known scope, use the fast path:
+## Recommended Workflow
 
 ```text
-issue → branch → implement → verify → PR
+Plan when needed
+/plan → /create-issue
+
+Select and start
+/whats-next → wt <agent> --create <branch> → /start-issue
+
+Develop
+implement ↔ pnpm run check → review the diff → address findings
+
+Finalize
+/finish-issue (documentation → verify → commit) → /prepare-pr
+
+GitHub
+CI → squash merge → wt remove <branch>
 ```
 
-### 1. Plan the Project
+- Skip `/plan` for a small, well-defined change, but always use an issue.
+- Use `/retry-issue` only when an attempt or issue definition is unsatisfactory; it requires confirmation before discarding changes.
+- Use a fresh read-only reviewer only for risky, complex, or security-sensitive changes.
 
-Use `/plan` to define the goal, constraints, architecture, dependencies, risks, and acceptance criteria.
+## Quick Examples
 
-### 2. Create Issues
+Small, well-defined fix:
 
-Use `/create-issue` to turn the plan into small, testable issues using [`.github/ISSUE_TEMPLATE/`](../.github/ISSUE_TEMPLATE/).
+```text
+issue #123
+→ wt codex --create fix/123-correct-timeout
+→ /start-issue
+→ implement ↔ pnpm run check
+→ /finish-issue
+→ /prepare-pr
+→ CI → squash merge → wt remove fix/123-correct-timeout
+```
 
-### 3. Choose the Checkout Strategy
+Sequential change without an additional worktree:
 
-Use `/whats-next` to select a ready issue, then choose the checkout strategy. Each issue owns one AI session, branch, and pull request.
+```text
+issue #124
+→ git switch -c docs/124-update-copy origin/main
+→ /start-issue
+→ implement ↔ pnpm run check
+→ /finish-issue
+→ /prepare-pr
+→ CI → squash merge → clean up the branch
+```
 
-Use [Worktrunk](https://worktrunk.dev/) to create and switch checkouts. Its project configuration copies ignored files, assigns a stable per-branch port, and installs Python or Node dependencies before an agent starts.
+Complex or risky feature:
+
+```text
+/plan → /create-issue → /whats-next
+→ wt claude --create feat/125-add-auth
+→ /start-issue
+→ implement ↔ checks
+→ fresh read-only review → address findings
+→ /finish-issue → /prepare-pr
+→ CI → squash merge → wt remove feat/125-add-auth
+```
+
+## Start
+
+Use `/whats-next` to select a ready issue. Each issue owns one branch, worktree, primary agent session, and pull request.
+
+Use [Worktrunk](https://worktrunk.dev/) to create the checkout and launch an agent:
 
 ```sh
 wt switch --create <branch>
@@ -31,42 +74,25 @@ wt codex --create <branch>
 wt copilot --create <branch>
 ```
 
-- **Sequential:** Use the primary checkout and finish one issue before starting the next.
-- **Parallel:** Give each independent active issue its own worktree and session.
+Name branches according to [`conventions.md`](conventions.md), then run `/start-issue` inside the new checkout to revalidate the issue and plan the implementation.
 
-```text
-sequential: issue-a → PR-a → merge → issue-b → PR-b
-parallel:   issue-a → worktree-a → PR-a
-            issue-b → worktree-b → PR-b
-```
+A worktree isolates Git state, not system access. Run unrestricted agents only in an isolated environment without host credentials or unrelated files.
 
-Name branches according to [`conventions.md`](conventions.md). Keep each session inside its assigned checkout and scoped to its issue.
+## Develop
 
-### 4. Revalidate and Plan the Issue
+Implement the smallest complete change, add tests, and run `pnpm run check` while iterating. Review the complete diff and address valid findings before finalization.
 
-In each issue session, use `/start-issue` to revalidate the issue and write a focused implementation plan.
+## Finish
 
-### 5. Implement and Verify
+Run `/finish-issue` to revalidate acceptance criteria, update affected documentation, run `pnpm run verify`, audit the final diff, and create the Conventional Commit.
 
-Implement the smallest complete change, add tests, and review the diff. Use `/retry-issue` to replace an unsuccessful attempt; it requires confirmation before discarding changes. Run `pnpm run check` while iterating, then use `/update-docs-and-commit` and `/finish-issue` before opening a pull request.
-
-### 6. Open the Pull Request
-
-Use `/prepare-pr` to verify the completed change and open a pull request after confirmation. Link the issue with `Closes #123` and include verification evidence.
-
-### 7. Review and Merge
-
-Resolve required checks and review findings. Merge prerequisites first, update dependent worktrees, rerun `pnpm run verify`, and squash merge.
-
-### 8. Clean Up
-
-Confirm the issue closed, record follow-up issues, and remove the merged local branch and worktree when used.
+Run `/prepare-pr` to verify the clean branch and open a pull request after confirmation. Link it with `Closes #<issue>`, wait for CI, squash merge, then remove the worktree.
 
 ## direnv
 
-The committed [`.envrc`](../.envrc) loads worktree-local `.env` and `.env.local` files, synchronizes a local Python environment with `uv` when applicable, exposes local pnpm dependencies, and activates [mise](https://mise.jdx.dev/) runtimes.
+The committed [`.envrc`](../.envrc) loads worktree-local `.env` files and exposes existing `.venv` and `node_modules/.bin` directories. mise remains activated by the shell, while Worktrunk creates applicable environments before launching an agent.
 
-Install [direnv](https://direnv.net/docs/installation.html), add its shell hook, and approve each checkout:
+After installing the shell hook, approve each checkout:
 
 ```sh
 direnv allow
