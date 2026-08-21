@@ -22,7 +22,7 @@ CI runs `pnpm run verify`, so local and remote completion gates are identical.
 - PR convention checks validate branch names and Conventional Commit PR titles.
 - CI reports formatting, lint, type, test, whitespace, and build failures.
 - Squash merging uses the PR title as the commit on `main`, which Release Please uses for versioning and release notes.
-- [`AGENTS.md`](AGENTS.md) is the shared instruction source; [`CLAUDE.md`](CLAUDE.md) loads it for Claude Code.
+- [`AGENTS.md`](AGENTS.md) is the shared instruction source used directly by Codex; [`CLAUDE.md`](CLAUDE.md) loads it for Claude Code, and [`.github/copilot-instructions.md`](.github/copilot-instructions.md) directs GitHub Copilot to it.
 
 ## Documentation
 
