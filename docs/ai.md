@@ -22,6 +22,15 @@ Use `/create-issue` to turn the plan into small, testable issues using [`.github
 
 Use `/whats-next` to select a ready issue, then choose the checkout strategy. Each issue owns one AI session, branch, and pull request.
 
+Use [Worktrunk](https://worktrunk.dev/) to create and switch checkouts. Its project configuration copies ignored files, assigns a stable per-branch port, and installs Python or Node dependencies before an agent starts.
+
+```sh
+wt switch --create <branch>
+wt claude --create <branch>
+wt codex --create <branch>
+wt copilot --create <branch>
+```
+
 - **Sequential:** Use the primary checkout and finish one issue before starting the next.
 - **Parallel:** Give each independent active issue its own worktree and session.
 
@@ -39,7 +48,7 @@ In each issue session, use `/start-issue` to revalidate the issue and write a fo
 
 ### 5. Implement and Verify
 
-Implement the smallest complete change, add tests, and review the diff. Use `/retry-issue` to replace an unsuccessful attempt; it requires confirmation before discarding changes. Run `npm run check` while iterating, then use `/update-docs-and-commit` and `/finish-issue` before opening a pull request.
+Implement the smallest complete change, add tests, and review the diff. Use `/retry-issue` to replace an unsuccessful attempt; it requires confirmation before discarding changes. Run `pnpm run check` while iterating, then use `/update-docs-and-commit` and `/finish-issue` before opening a pull request.
 
 ### 6. Open the Pull Request
 
@@ -47,7 +56,7 @@ Use `/prepare-pr` to verify the completed change and open a pull request after c
 
 ### 7. Review and Merge
 
-Resolve required checks and review findings. Merge prerequisites first, update dependent worktrees, rerun `npm run verify`, and squash merge.
+Resolve required checks and review findings. Merge prerequisites first, update dependent worktrees, rerun `pnpm run verify`, and squash merge.
 
 ### 8. Clean Up
 
@@ -55,7 +64,7 @@ Confirm the issue closed, record follow-up issues, and remove the merged local b
 
 ## direnv
 
-The committed [`.envrc`](../.envrc) loads the main worktree's `.env` and `.venv`, allows worktree-local `.env` overrides, keeps Node dependencies local, and activates [mise](https://mise.jdx.dev/) runtimes.
+The committed [`.envrc`](../.envrc) loads worktree-local `.env` and `.env.local` files, synchronizes a local Python environment with `uv` when applicable, exposes local pnpm dependencies, and activates [mise](https://mise.jdx.dev/) runtimes.
 
 Install [direnv](https://direnv.net/docs/installation.html), add its shell hook, and approve each checkout:
 

@@ -2,41 +2,41 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "type": "npm",
-      "script": "check",
+      "type": "shell",
+      "command": "pnpm run check",
       "problemMatcher": [],
       "group": "test",
-      "label": "npm: check"
+      "label": "pnpm: check"
     },
     {
-      "type": "npm",
-      "script": "fix",
+      "type": "shell",
+      "command": "pnpm run fix",
       "problemMatcher": [],
-      "label": "npm: fix"
+      "label": "pnpm: fix"
     },
     {
-      "type": "npm",
-      "script": "test",
+      "type": "shell",
+      "command": "pnpm test",
       "problemMatcher": [],
       "group": "test",
-      "label": "npm: test"
+      "label": "pnpm: test"
     },
     {
-      "type": "npm",
-      "script": "build",
+      "type": "shell",
+      "command": "pnpm run build",
       "problemMatcher": ["$tsc"],
       "group": "build",
-      "label": "npm: build"
+      "label": "pnpm: build"
     },
     {
-      "type": "npm",
-      "script": "verify",
+      "type": "shell",
+      "command": "pnpm run verify",
       "problemMatcher": [],
       "group": {
         "kind": "build",
         "isDefault": true
       },
-      "label": "npm: verify"
+      "label": "pnpm: verify"
     }
   ]
 }
