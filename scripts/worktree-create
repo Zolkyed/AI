@@ -14,8 +14,8 @@ worktree_name="$1"
   { echo "Worktree name must use lowercase kebab-case" >&2; exit 2; }
 
 repo_root="$(dirname "$(git rev-parse --path-format=absolute --git-common-dir)")"
-worktree_root="${WORKTREE_ROOT:-$repo_root/.worktrees}"
-worktree="$worktree_root/$worktree_name"
+worktree_root="$(dirname "$repo_root")"
+worktree="$worktree_root/$(basename "$repo_root").$worktree_name"
 
 git fetch origin main >&2
 mkdir -p "$worktree_root"
