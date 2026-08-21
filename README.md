@@ -31,6 +31,7 @@ CI runs `npm run verify`, so local and remote completion gates are identical.
 - [Settings](docs/settings.md)
 - [Conventions](docs/conventions.md)
 - [Repository settings](docs/repository-settings.md)
+- [References](docs/references.md)
 - [Architecture](docs/architecture/README.md)
 - [API](docs/api/README.md)
 
