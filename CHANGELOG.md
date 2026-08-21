@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.3.0](https://github.com/Zolkyed/AI/compare/v1.2.0...v1.3.0) (2026-08-21)
+
+
+### 🚀 Feature Development
+
+* add named detached worktree sessions ([d8bb066](https://github.com/Zolkyed/AI/commit/d8bb066d0801d989bb6da435c06f09d334f051a7)), closes [#38](https://github.com/Zolkyed/AI/issues/38)
+* add safe worktree lifecycle commands ([1bef842](https://github.com/Zolkyed/AI/commit/1bef84290b97ef0ce6d9a2d5315a506c5ee5c68e))
+* enable VS Code worktree discovery ([330951b](https://github.com/Zolkyed/AI/commit/330951ba99e511ea383c14a688b53f68858ec008)), closes [#36](https://github.com/Zolkyed/AI/issues/36)
+* keep worktrees inside project ([13eb6cd](https://github.com/Zolkyed/AI/commit/13eb6cd7ef50577ada6eaac295c21535d17838ee))
+* use sibling paths for worktrees ([#42](https://github.com/Zolkyed/AI/issues/42)) ([9370a3d](https://github.com/Zolkyed/AI/commit/9370a3dd467aab490a0ffaf3c2dfa4daec8a2823))
+
+
+### 📝 Documentation
+
+* add Codex automatic review setup ([#44](https://github.com/Zolkyed/AI/issues/44)) ([0e4fe58](https://github.com/Zolkyed/AI/commit/0e4fe5875ebafeec05b4a38dbf49da43f14f5d16))
+
 ## [1.2.0](https://github.com/Zolkyed/AI/compare/v1.1.0...v1.2.0) (2026-08-20)
 
 
