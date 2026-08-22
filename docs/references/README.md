@@ -81,6 +81,10 @@ Command availability varies by agent, version, and plan. Consult the provider re
 
 - [Grafana MCP](https://github.com/grafana/mcp-grafana) — query dashboards, data sources, incidents, and observability data
 
+### Deployment
+
+- [Vercel MCP](https://vercel.com/docs/agent-resources/vercel-mcp) — manage Vercel projects and deployments, inspect logs, and search documentation
+
 ### Collaboration
 
 - [Atlassian MCP](https://atlassian.github.io/atlassian-mcp-server/)
