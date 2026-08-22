@@ -51,16 +51,45 @@ Command availability varies by agent, version, and plan. Consult the provider re
 - [MCP documentation](https://modelcontextprotocol.io/)
 - [Official MCP Registry](https://registry.modelcontextprotocol.io/)
 
-### Servers
+### Files and Documentation
 
 - [Filesystem MCP](https://github.com/modelcontextprotocol/servers/blob/main/src/filesystem/README.md)
 - [Context7 MCP](https://context7.com/docs/overview) — current, version-specific library documentation
+
+### Browser Tooling
+
 - [Chrome DevTools MCP](https://developer.chrome.com/docs/devtools/agents/get-started) — inspect, debug, and automate Chrome
+
+### Web Scraping
+
 - [Firecrawl MCP](https://docs.firecrawl.dev/use-cases/developers-mcp) — search, scrape, and extract web content
+
+### Workflow Automation
+
+- [n8n MCP](https://docs.n8n.io/connect/connect-to-n8n-mcp-server) — build, manage, test, and run n8n workflows from MCP clients
+
+### Databases
+
 - [SQLite MCP](https://github.com/modelcontextprotocol/servers-archived/tree/main/src/sqlite) — archived reference server
 - [PostgreSQL MCP](https://github.com/modelcontextprotocol/servers-archived/tree/main/src/postgres) — archived reference server
 - [Supabase MCP](https://supabase.com/docs/guides/ai-tools/mcp)
+- [Redis MCP](https://redis.io/docs/latest/integrate/redis-mcp/) — query and manage Redis data, streams, caches, and vector indexes
+- [MongoDB MCP](https://www.mongodb.com/docs/mcp-server/overview/) — query and manage MongoDB deployments, collections, indexes, and Atlas resources
+- [Elasticsearch MCP](https://www.elastic.co/docs/solutions/search/agent-builder/mcp-server) — query Elastic indices and Agent Builder tools from MCP clients
+
+### Observability
+
+- [Grafana MCP](https://github.com/grafana/mcp-grafana) — query dashboards, data sources, incidents, and observability data
+
+### Collaboration
+
 - [Atlassian MCP](https://atlassian.github.io/atlassian-mcp-server/)
+
+### Penetration Testing
+
+- [Kali MCP Server](https://www.kali.org/tools/mcp-kali-server/) — connect Kali Linux tools to MCP clients such as Claude
+- [Burp Suite MCP](https://github.com/c0tton-fluff/burp-mcp-server) — connect Burp Suite requests, history, and scanner findings to AI assistants such as Claude
+- [Caido MCP](https://docs.caido.io/app/tutorials/mcp.html) — connect Caido projects and HTTP traffic to MCP clients
 
 ## CLI Tools
 
@@ -71,6 +100,7 @@ Command availability varies by agent, version, and plan. Consult the provider re
 - [`direnv`](https://direnv.net/) — automatic directory-scoped environment loading
 - [`gh`](https://cli.github.com/manual/) — GitHub issues, pull requests, reviews, and Actions
 - [`rg`](https://github.com/BurntSushi/ripgrep) — fast repository search and file discovery
+- [`fd`](https://github.com/sharkdp/fd) — fast, user-friendly file and directory discovery
 - [`jq`](https://jqlang.org/manual/) — JSON inspection and transformation
 - [`yq`](https://mikefarah.gitbook.io/yq/) — YAML inspection and transformation
 - [Playwright CLI](https://playwright.dev/docs/getting-started-cli) — token-efficient browser automation for coding agents
