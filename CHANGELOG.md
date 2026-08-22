@@ -1,5 +1,24 @@
 # Changelog
 
+## [1.3.2](https://github.com/Zolkyed/AI/compare/v1.3.1...v1.3.2) (2026-08-22)
+
+
+### 📝 Documentation
+
+* add Vercel MCP reference ([9720961](https://github.com/Zolkyed/AI/commit/9720961771a539e0f658dc6dee68fe8f99c507d0)), closes [#60](https://github.com/Zolkyed/AI/issues/60)
+* document shared agent instructions ([#56](https://github.com/Zolkyed/AI/issues/56)) ([f7a55c5](https://github.com/Zolkyed/AI/commit/f7a55c5b28f0ea371feb7c6e9e46d3b9d9ca3c0c))
+* expand MCP and CLI references ([fafb86e](https://github.com/Zolkyed/AI/commit/fafb86e8f496f38ac061d37154af3a12b1840de1)), closes [#58](https://github.com/Zolkyed/AI/issues/58)
+
+
+### 🔧 Maintenance
+
+* adopt reproducible agent tooling ([7706baa](https://github.com/Zolkyed/AI/commit/7706baa72e0cf871b1c44cbde8d838f92afc47a3)), closes [#45](https://github.com/Zolkyed/AI/issues/45)
+* **deps:** bump vitest from 4.1.10 to 4.1.11 in the pnpm-minor-and-patch group ([#50](https://github.com/Zolkyed/AI/issues/50)) ([412d700](https://github.com/Zolkyed/AI/commit/412d7004d3754ed515d81a1033233cdeea493576))
+* harden multi-agent development workflow ([#55](https://github.com/Zolkyed/AI/issues/55)) ([b467c05](https://github.com/Zolkyed/AI/commit/b467c05e5c28ecd5f546f3c075d56c1d26ca1478))
+* improve Worktrunk configuration ([23fb6bd](https://github.com/Zolkyed/AI/commit/23fb6bd27765dc946a4828914c47369768d0373a))
+* recommend additional VS Code extensions ([ddb7e56](https://github.com/Zolkyed/AI/commit/ddb7e5632b7774a6ac862082be3ed869b682787b))
+* simplify release configuration ([2e11561](https://github.com/Zolkyed/AI/commit/2e115613670608027a22f46271b400772f2d0125)), closes [#51](https://github.com/Zolkyed/AI/issues/51)
+
 ## [1.3.1](https://github.com/Zolkyed/AI/compare/v1.3.0...v1.3.1) (2026-08-21)
 
 
