@@ -1,7 +1,12 @@
 {
   "recommendations": [
+    "bierner.comment-tagged-templates",
     "dbaeumer.vscode-eslint",
+    "eamodio.gitlens",
+    "Gruntfuggly.todo-tree",
     "esbenp.prettier-vscode",
-    "editorconfig.editorconfig"
+    "editorconfig.editorconfig",
+    "usernamehw.errorlens",
+    "YoavBls.pretty-ts-errors"
   ]
 }
