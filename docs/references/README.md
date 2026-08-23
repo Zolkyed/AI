@@ -107,4 +107,8 @@ Command availability varies by agent, version, and plan. Consult the provider re
 - [`fd`](https://github.com/sharkdp/fd) — fast, user-friendly file and directory discovery
 - [`jq`](https://jqlang.org/manual/) — JSON inspection and transformation
 - [`yq`](https://mikefarah.gitbook.io/yq/) — YAML inspection and transformation
+- [`mitmproxy`](https://docs.mitmproxy.org/stable/) — scriptable HTTP and HTTPS traffic inspection and debugging
+- [TShark](https://www.wireshark.org/docs/man-pages/tshark.html) — command-line packet capture and protocol analysis
+- [OpenSSL](https://docs.openssl.org/master/man1/openssl/) — TLS certificate, connection, and cryptography diagnostics
+- [`websocat`](https://github.com/vi/websocat) — command-line WebSocket client and data relay
 - [Playwright CLI](https://playwright.dev/docs/getting-started-cli) — token-efficient browser automation for coding agents
