@@ -95,6 +95,10 @@ Command availability varies by agent, version, and plan. Consult the provider re
 - [Burp Suite MCP](https://github.com/c0tton-fluff/burp-mcp-server) — connect Burp Suite requests, history, and scanner findings to AI assistants such as Claude
 - [Caido MCP](https://docs.caido.io/app/tutorials/mcp.html) — connect Caido projects and HTTP traffic to MCP clients
 
+## IDE Integrations
+
+- [VS Code Tmux Worktree](https://marketplace.visualstudio.com/items?itemName=kargnas.vscode-tmux-worktree) — manage tmux-backed Git worktrees from VS Code ([source](https://github.com/kargnas/vscode-ext-tmux-worktree))
+
 ## CLI Tools
 
 - [`mise`](https://mise.jdx.dev/) — pinned tool versions and reproducible project environments

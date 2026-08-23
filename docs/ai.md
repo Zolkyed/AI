@@ -72,7 +72,12 @@ wt switch --create <branch>
 wt claude --create <branch>
 wt codex --create <branch>
 wt copilot --create <branch>
+wt opencode --create <branch>
 ```
+
+For a VS Code interface to tmux-backed worktrees, install
+[VS Code Tmux Worktree](https://marketplace.visualstudio.com/items?itemName=kargnas.vscode-tmux-worktree)
+([source code](https://github.com/kargnas/vscode-ext-tmux-worktree)).
 
 Name branches according to [`conventions.md`](conventions.md), then run `/start-issue` inside the new checkout to revalidate the issue and plan the implementation.
 
