@@ -72,6 +72,7 @@ wt switch --create <branch>
 wt claude --create <branch>
 wt codex --create <branch>
 wt copilot --create <branch>
+wt opencode --create <branch>
 ```
 
 Name branches according to [`conventions.md`](conventions.md), then run `/start-issue` inside the new checkout to revalidate the issue and plan the implementation.
