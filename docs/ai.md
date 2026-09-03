@@ -23,6 +23,23 @@ CI → squash merge → wt remove <branch>
 - Use `/retry-issue` only when an attempt or issue definition is unsatisfactory; it requires confirmation before discarding changes.
 - Use a fresh read-only reviewer only for risky, complex, or security-sensitive changes.
 
+## Development Setup
+
+Local development:
+
+```text
+VS Code → herdr multiplexer → Worktrunk worktree → agent AI
+```
+
+Remote development:
+
+```text
+VS Code Remote SSH → herdr multiplexer → Worktrunk worktree → agent AI
+```
+
+Use `herdr` from the VS Code terminal. Worktrunk creates and manages the
+isolated worktree where the agent runs.
+
 ## Quick Examples
 
 Small, well-defined fix:
@@ -75,9 +92,7 @@ wt copilot --create <branch>
 wt opencode --create <branch>
 ```
 
-For a VS Code interface to tmux-backed worktrees, install
-[VS Code Tmux Worktree](https://marketplace.visualstudio.com/items?itemName=kargnas.vscode-tmux-worktree)
-([source code](https://github.com/kargnas/vscode-ext-tmux-worktree)).
+Use `herdr` in the VS Code integrated terminal.
 
 Name branches according to [`conventions.md`](conventions.md), then run `/start-issue` inside the new checkout to revalidate the issue and plan the implementation.
 
