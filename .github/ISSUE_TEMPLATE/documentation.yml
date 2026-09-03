@@ -1,0 +1,62 @@
+name: Documentation
+description: Propose an improvement or addition to the documentation
+labels: ['documentation']
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Describe what is missing, unclear, outdated, or incorrect.
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Explain why this documentation change is needed and who it helps.
+    validations:
+      required: true
+
+  - type: textarea
+    id: affected-documentation
+    attributes:
+      label: Affected Documentation
+      description: List the relevant files, sections, or external documentation.
+      placeholder: |
+        - docs/example.md — section or topic
+        - README.md — section or topic
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-change
+    attributes:
+      label: Proposed Change
+      description: Describe the intended correction, addition, or reorganization.
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance Criteria
+      description: List the conditions that must be met for this issue to be complete.
+      placeholder: |
+        - [ ] Criterion one
+        - [ ] Criterion two
+    validations:
+      required: true
+
+  - type: textarea
+    id: out-of-scope
+    attributes:
+      label: Out of Scope
+      description: List related documentation work intentionally excluded from this issue.
+
+  - type: textarea
+    id: verification
+    attributes:
+      label: Verification
+      description: Describe how the documentation change can be checked.
+      placeholder: |
+        - Check links and rendered Markdown
+        - Run pnpm run verify
