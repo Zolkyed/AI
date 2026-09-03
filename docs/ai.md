@@ -1,12 +1,96 @@
 # AI Workflow
 
-## High-Level Development Loop
+## Development Loop
 
 [![Project Development Workflow](assets/project-development-workflow.png)](https://app.eraser.io/workspace/G8EpIWj7GwrSKfuByKA6)
 
-The project loop is: plan, design, break work into features, build one feature,
-self-check, review with AI, fix issues, save progress, and repeat until the
-project is complete.
+The workflow principle is: **Plan first → Build small → Review with AI → Fix issues → Repeat.**
+
+### 1. Plan & Describe Project
+
+For complex work, use `/plan` to interview about the product, users, scope,
+user flows, architecture, risks, and constraints. Do not write code during the
+interview. Small, well-defined changes may skip `/plan`, but every
+implementation still needs a GitHub issue.
+
+### 2. Generate UI Design
+
+When the project has a user interface, use AI to explore screens, layouts,
+visual style, and user flows before implementation. Skip this step for backend,
+CLI, library, documentation, and other work without a UI.
+
+### 3. Break Into Features
+
+Turn the project plan into small, independently verifiable features. Create or
+update GitHub issues with scope, dependencies, expected files or modules,
+acceptance criteria, and out-of-scope work. Use `/create-issue` for new issues
+and `/whats-next` to select a ready issue.
+
+### 4. Build One Feature
+
+Create the issue branch and worktree, then run `/start-issue` inside the
+checkout. Implement only the current feature and follow `AGENTS.md` and
+`docs/conventions.md`. Keep the change small and complete rather than building
+multiple features at once.
+
+### 5. Self Check
+
+Run the relevant checks while implementing, normally:
+
+```sh
+pnpm run check
+```
+
+Review the diff, test observable behavior, and confirm the feature matches its
+acceptance criteria before requesting review.
+
+### 6. AI Code Review
+
+Use AI to review the implementation for bugs, security issues, missing tests,
+edge cases, convention violations, and unnecessary changes. For risky,
+complex, or security-sensitive work, use a fresh read-only reviewer that did
+not implement the change.
+
+AI is a reviewer, not a random code generator.
+
+### 7. Fix Issues
+
+Apply valid review findings, clean up the implementation, and rerun the
+relevant checks. Do not make unrelated improvements during this loop.
+
+### 8. Feature Complete?
+
+The feature is complete only when its acceptance criteria are satisfied, tests
+and checks pass, the final diff is in scope, and review findings are addressed.
+If it is not complete, return to **Build One Feature** or **Fix Issues**.
+
+### 9. Save Progress
+
+Run `/finish-issue` to revalidate the issue, update only affected
+documentation, run `pnpm run verify`, audit the final diff, and create the
+Conventional Commit. Run `/prepare-pr` to verify the branch and create the pull
+request after confirmation. The PR must link the issue with `Closes #<issue>`.
+
+After CI passes and approval is complete, a human squash-merges the PR and
+removes the worktree.
+
+### 10. More Features?
+
+If more features remain, select the next ready issue and repeat from
+**Build One Feature**. Use parallel development only for independent features;
+use separate Worktrunk worktrees and agent sessions to prevent collisions.
+
+If no features remain, verify the complete project and proceed to
+**Project Complete**.
+
+### 11. Project Complete
+
+The project is complete when all planned features are built, reviewed,
+verified, documented where needed, and delivered through the issue and pull
+request workflow.
+
+Use `/retry-issue` only when an attempt or issue definition is unsatisfactory;
+it requires confirmation before discarding changes.
 
 ## Execution Setup
 
@@ -24,19 +108,6 @@ VS Code Remote SSH → herdr multiplexer → Worktrunk worktree → agent AI
 
 Use `herdr` from the VS Code terminal. Worktrunk creates and manages the
 isolated worktree where the agent runs.
-
-## Delivery Workflow
-
-1. **Discover:** For complex work, use `/plan` to interview about the product, users, scope, flows, architecture, risks, and constraints. Do not write code during this interview. Small changes may skip the interview, but every implementation still needs an issue.
-2. **Plan and issue:** After the interview produces a spec summary, assumptions, and open risks, confirm that it should become an implementation plan. Then create the issue with `/create-issue`.
-3. **Select and start:** Use `/whats-next`, create the issue branch and worktree, then run `/start-issue` inside the checkout.
-4. **Build the feature loop:** For each feature, design the intended behavior, implement the smallest complete change, self-check it, and run `pnpm run check`.
-5. **Review and improve:** Review the feature with AI, fix valid issues, save progress, and repeat the feature loop until the project is complete. Use a fresh read-only reviewer for risky, complex, or security-sensitive changes.
-6. **Finalize:** Run `/finish-issue` to revalidate acceptance criteria, update affected documentation, run `pnpm run verify`, audit the final diff, and create the Conventional Commit.
-7. **Deliver:** Run `/prepare-pr`, link the pull request with `Closes #<issue>`, and wait for CI. After approval, a human squash-merges the PR and removes the worktree.
-
-Use `/retry-issue` only when an attempt or issue definition is unsatisfactory;
-it requires confirmation before discarding changes.
 
 ## Worktrees and Agents
 
@@ -68,11 +139,11 @@ After installing the shell hook, approve each checkout:
 direnv allow
 ```
 
-## Choose a Development Mode
+## Development Modes
 
 Use **parallel development** when features are independent and can be safely
 worked on at the same time. Give each issue its own Worktrunk worktree and agent
-session to prevent changes from colliding:
+session:
 
 ```text
 issue A → worktree A → agent A
@@ -88,5 +159,5 @@ issue A → implement → verify → PR
 issue B → implement → verify → PR
 ```
 
-In both modes, follow the same delivery workflow and keep one issue, branch,
-worktree, agent session, and pull request together.
+In both modes, keep one issue, branch, worktree, agent session, and pull
+request together.
