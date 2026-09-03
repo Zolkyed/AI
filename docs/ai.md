@@ -24,10 +24,11 @@ prompt. Include the target aspect ratio, for example:
 ```
 
 Paste the generated prompt into an AI image-generation tool to explore screens,
-layouts, visual style, and user flows. Review the generated design and use it as
-a visual reference before breaking the work into implementation issues. Skip
-this step for backend, CLI, library, documentation, and other work without a
-UI.
+layouts, visual style, and user flows. Save the selected generated design as
+`design/image.png`; this file is the canonical visual reference used during
+implementation. Review the generated design before breaking the work into
+implementation issues. Skip this step for backend, CLI, library, documentation,
+and other work without a UI.
 
 ### 3. Break Into Features
 
