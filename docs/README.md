@@ -14,6 +14,7 @@ Use this index to find the repository's authoritative development and design gui
 ## Architecture
 
 - [Architecture overview](architecture/README.md) — system structure and architecture documentation
+- [Technology stack](architecture/technology-stack.md) — selected application, backend, service, and delivery technologies
 - [Architecture decisions](architecture/decisions/README.md) — ADR naming, status, and template
 
 ## API
