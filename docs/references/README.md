@@ -102,18 +102,30 @@ Command availability varies by agent, version, and plan. Consult the provider re
 
 ## CLI Tools
 
+### Environment and Workflow
+
 - [`mise`](https://mise.jdx.dev/) — pinned tool versions and reproducible project environments
 - [Worktrunk (`wt`)](https://worktrunk.dev/) — Git worktree orchestration for parallel AI agents
-- `herdr` — multiplex agent sessions from the VS Code terminal, locally or over Remote SSH
+- [`herdr`](https://herdr.dev/) — multiplex agent sessions from the VS Code terminal, locally or over Remote SSH
+- [`direnv`](https://direnv.net/) — automatic directory-scoped environment loading
+- [`portless`](https://github.com/vercel-labs/portless) — stable named local URLs for development servers and worktrees
+
+### Web and Browser
+
+- [Playwright CLI](https://playwright.dev/docs/getting-started-cli) — token-efficient browser automation for coding agents
+- [`websocat`](https://github.com/vi/websocat) — command-line WebSocket client and data relay
+
+### Cybersecurity
+
+- [`mitmproxy`](https://docs.mitmproxy.org/stable/) — scriptable HTTP and HTTPS traffic inspection and debugging
+- [ProjectDiscovery tools](https://projectdiscovery.io/open-source) — asset discovery, HTTP probing, crawling, port scanning, and vulnerability scanning
+
+### General Development
+
 - [`pnpm`](https://pnpm.io/) — fast, disk-efficient Node.js dependency management
 - [`uv`](https://docs.astral.sh/uv/) — Python dependency, project, and virtual environment management
-- [`direnv`](https://direnv.net/) — automatic directory-scoped environment loading
 - [`gh`](https://cli.github.com/manual/) — GitHub issues, pull requests, reviews, and Actions
 - [`rg`](https://github.com/BurntSushi/ripgrep) — fast repository search and file discovery
 - [`fd`](https://github.com/sharkdp/fd) — fast, user-friendly file and directory discovery
 - [`jq`](https://jqlang.org/manual/) — JSON inspection and transformation
 - [`yq`](https://mikefarah.gitbook.io/yq/) — YAML inspection and transformation
-- [`mitmproxy`](https://docs.mitmproxy.org/stable/) — scriptable HTTP and HTTPS traffic inspection and debugging
-- [ProjectDiscovery tools](https://projectdiscovery.io/open-source) — asset discovery, HTTP probing, crawling, port scanning, and vulnerability scanning
-- [`websocat`](https://github.com/vi/websocat) — command-line WebSocket client and data relay
-- [Playwright CLI](https://playwright.dev/docs/getting-started-cli) — token-efficient browser automation for coding agents

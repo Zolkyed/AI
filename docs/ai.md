@@ -1,29 +1,14 @@
 # AI Workflow
 
-## Recommended Workflow
+## High-Level Development Loop
 
-```text
-Plan when needed
-/plan → /create-issue
+[![Project Development Workflow](assets/project-development-workflow.png)](https://app.eraser.io/workspace/G8EpIWj7GwrSKfuByKA6)
 
-Select and start
-/whats-next → wt <agent> --create <branch> → /start-issue
+The project loop is: plan, design, break work into features, build one feature,
+self-check, review with AI, fix issues, save progress, and repeat until the
+project is complete.
 
-Develop
-implement ↔ pnpm run check → review the diff → address findings
-
-Finalize
-/finish-issue (documentation → verify → commit) → /prepare-pr
-
-GitHub
-CI → squash merge → wt remove <branch>
-```
-
-- Skip `/plan` for a small, well-defined change, but always use an issue.
-- Use `/retry-issue` only when an attempt or issue definition is unsatisfactory; it requires confirmation before discarding changes.
-- Use a fresh read-only reviewer only for risky, complex, or security-sensitive changes.
-
-## Development Setup
+## Execution Setup
 
 Local development:
 
@@ -40,49 +25,23 @@ VS Code Remote SSH → herdr multiplexer → Worktrunk worktree → agent AI
 Use `herdr` from the VS Code terminal. Worktrunk creates and manages the
 isolated worktree where the agent runs.
 
-## Quick Examples
+## Delivery Workflow
 
-Small, well-defined fix:
+1. **Discover:** For complex work, use `/plan` to interview about the product, users, scope, flows, architecture, risks, and constraints. Do not write code during this interview. Small changes may skip the interview, but every implementation still needs an issue.
+2. **Plan and issue:** After the interview produces a spec summary, assumptions, and open risks, confirm that it should become an implementation plan. Then create the issue with `/create-issue`.
+3. **Select and start:** Use `/whats-next`, create the issue branch and worktree, then run `/start-issue` inside the checkout.
+4. **Build the feature loop:** For each feature, design the intended behavior, implement the smallest complete change, self-check it, and run `pnpm run check`.
+5. **Review and improve:** Review the feature with AI, fix valid issues, save progress, and repeat the feature loop until the project is complete. Use a fresh read-only reviewer for risky, complex, or security-sensitive changes.
+6. **Finalize:** Run `/finish-issue` to revalidate acceptance criteria, update affected documentation, run `pnpm run verify`, audit the final diff, and create the Conventional Commit.
+7. **Deliver:** Run `/prepare-pr`, link the pull request with `Closes #<issue>`, and wait for CI. After approval, a human squash-merges the PR and removes the worktree.
 
-```text
-issue #123
-→ wt codex --create fix/123-correct-timeout
-→ /start-issue
-→ implement ↔ pnpm run check
-→ /finish-issue
-→ /prepare-pr
-→ CI → squash merge → wt remove fix/123-correct-timeout
-```
+Use `/retry-issue` only when an attempt or issue definition is unsatisfactory;
+it requires confirmation before discarding changes.
 
-Sequential change without an additional worktree:
+## Worktrees and Agents
 
-```text
-issue #124
-→ git switch -c docs/124-update-copy origin/main
-→ /start-issue
-→ implement ↔ pnpm run check
-→ /finish-issue
-→ /prepare-pr
-→ CI → squash merge → clean up the branch
-```
-
-Complex or risky feature:
-
-```text
-/plan → /create-issue → /whats-next
-→ wt claude --create feat/125-add-auth
-→ /start-issue
-→ implement ↔ checks
-→ fresh read-only review → address findings
-→ /finish-issue → /prepare-pr
-→ CI → squash merge → wt remove feat/125-add-auth
-```
-
-## Start
-
-Use `/whats-next` to select a ready issue. Each issue owns one branch, worktree, primary agent session, and pull request.
-
-Use [Worktrunk](https://worktrunk.dev/) to create the checkout and launch an agent:
+Use [Worktrunk](https://worktrunk.dev/) to create the checkout and launch an
+agent from the VS Code terminal:
 
 ```sh
 wt switch --create <branch>
@@ -92,28 +51,42 @@ wt copilot --create <branch>
 wt opencode --create <branch>
 ```
 
-Use `herdr` in the VS Code integrated terminal.
+Name branches according to [`conventions.md`](conventions.md). Each issue owns
+one branch, worktree, primary agent session, and pull request. A worktree
+isolates Git state, not system access, so run unrestricted agents only in an
+isolated environment without host credentials or unrelated files.
 
-Name branches according to [`conventions.md`](conventions.md), then run `/start-issue` inside the new checkout to revalidate the issue and plan the implementation.
+## Environment
 
-A worktree isolates Git state, not system access. Run unrestricted agents only in an isolated environment without host credentials or unrelated files.
-
-## Develop
-
-Implement the smallest complete change, add tests, and run `pnpm run check` while iterating. Review the complete diff and address valid findings before finalization.
-
-## Finish
-
-Run `/finish-issue` to revalidate acceptance criteria, update affected documentation, run `pnpm run verify`, audit the final diff, and create the Conventional Commit.
-
-Run `/prepare-pr` to verify the clean branch and open a pull request after confirmation. Link it with `Closes #<issue>`, wait for CI, squash merge, then remove the worktree.
-
-## direnv
-
-The committed [`.envrc`](../.envrc) loads worktree-local `.env` files and exposes existing `.venv` and `node_modules/.bin` directories. mise remains activated by the shell, while Worktrunk creates applicable environments before launching an agent.
+The committed [`.envrc`](../.envrc) loads worktree-local `.env` files and
+exposes existing `.venv` and `node_modules/.bin` directories. mise remains
+activated by the shell.
 
 After installing the shell hook, approve each checkout:
 
 ```sh
 direnv allow
 ```
+
+## Choose a Development Mode
+
+Use **parallel development** when features are independent and can be safely
+worked on at the same time. Give each issue its own Worktrunk worktree and agent
+session to prevent changes from colliding:
+
+```text
+issue A → worktree A → agent A
+issue B → worktree B → agent B
+```
+
+Use **sequential development** when features depend on one another, the change
+is small, or shared context is important. Finish and verify one issue before
+starting the next in a single checkout:
+
+```text
+issue A → implement → verify → PR
+issue B → implement → verify → PR
+```
+
+In both modes, follow the same delivery workflow and keep one issue, branch,
+worktree, agent session, and pull request together.
