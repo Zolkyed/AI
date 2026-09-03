@@ -7,3 +7,4 @@ Add a folder here with a `SKILL.md` file (frontmatter + instructions) to define 
 - `/prepare-pr` — verify, draft, and create a pull request after confirmation.
 - `/retry-issue` — discard a rejected attempt safely and iterate on the issue.
 - `/start-issue` — revalidate an issue and prepare its implementation plan.
+- `/ui-design-prompt` — generate a UI image-generation prompt from a product plan.

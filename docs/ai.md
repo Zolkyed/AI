@@ -15,9 +15,20 @@ implementation still needs a GitHub issue.
 
 ### 2. Generate UI Design
 
-When the project has a user interface, use AI to explore screens, layouts,
-visual style, and user flows before implementation. Skip this step for backend,
-CLI, library, documentation, and other work without a UI.
+When the project has a user interface, use the `/ui-design-prompt` skill after
+the plan is complete to turn `@plan.md` into a ready-to-paste image-generation
+prompt. Include the target aspect ratio, for example:
+
+```text
+/ui-design-prompt @plan.md --aspect-ratio 16:9
+```
+
+Paste the generated prompt into an AI image-generation tool to explore screens,
+layouts, visual style, and user flows. Save the selected generated design as
+`design/image.png`; this file is the canonical visual reference used during
+implementation. Review the generated design before breaking the work into
+implementation issues. Skip this step for backend, CLI, library, documentation,
+and other work without a UI.
 
 ### 3. Break Into Features
 
