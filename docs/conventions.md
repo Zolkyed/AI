@@ -77,6 +77,14 @@ docs: update setup instructions
 refactor!: replace the legacy client
 ```
 
+## Tooling Enforcement
+
+- ESLint enforces naming for variables, functions, parameters, classes, interfaces, types, and enums.
+- TypeScript enforces strict types, import extensions, consistent casing, and compile correctness.
+- Prettier enforces formatting.
+- Commitlint enforces commit message format.
+- CI enforces branch names, pull request titles, tests, linting, typechecking, and the production build.
+
 ## Enforcement
 
 - Husky and Commitlint validate local commit messages.
