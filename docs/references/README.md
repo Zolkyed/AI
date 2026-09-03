@@ -62,7 +62,8 @@ Command availability varies by agent, version, and plan. Consult the provider re
 
 ### Web Scraping
 
-- [Firecrawl MCP](https://docs.firecrawl.dev/use-cases/developers-mcp) — search, scrape, and extract web content
+- [Firecrawl MCP](https://docs.firecrawl.dev/mcp-server) — collect public content, search the web, and discover pages
+- [Exa MCP](https://exa.ai/docs/reference/exa-mcp) — search the web and fetch clean page content
 
 ### Workflow Automation
 
@@ -95,14 +96,15 @@ Command availability varies by agent, version, and plan. Consult the provider re
 - [Burp Suite MCP](https://github.com/c0tton-fluff/burp-mcp-server) — connect Burp Suite requests, history, and scanner findings to AI assistants such as Claude
 - [Caido MCP](https://docs.caido.io/app/tutorials/mcp.html) — connect Caido projects and HTTP traffic to MCP clients
 
-## IDE Integrations
+## Security Tools
 
-- [VS Code Tmux Worktree](https://marketplace.visualstudio.com/items?itemName=kargnas.vscode-tmux-worktree) — manage tmux-backed Git worktrees from VS Code ([source](https://github.com/kargnas/vscode-ext-tmux-worktree))
+- [OWASP ZAP](https://www.zaproxy.org/) — standalone web application security proxy and scanner
 
 ## CLI Tools
 
 - [`mise`](https://mise.jdx.dev/) — pinned tool versions and reproducible project environments
 - [Worktrunk (`wt`)](https://worktrunk.dev/) — Git worktree orchestration for parallel AI agents
+- `herdr` — multiplex agent sessions from the VS Code terminal, locally or over Remote SSH
 - [`pnpm`](https://pnpm.io/) — fast, disk-efficient Node.js dependency management
 - [`uv`](https://docs.astral.sh/uv/) — Python dependency, project, and virtual environment management
 - [`direnv`](https://direnv.net/) — automatic directory-scoped environment loading
@@ -112,7 +114,6 @@ Command availability varies by agent, version, and plan. Consult the provider re
 - [`jq`](https://jqlang.org/manual/) — JSON inspection and transformation
 - [`yq`](https://mikefarah.gitbook.io/yq/) — YAML inspection and transformation
 - [`mitmproxy`](https://docs.mitmproxy.org/stable/) — scriptable HTTP and HTTPS traffic inspection and debugging
-- [TShark](https://www.wireshark.org/docs/man-pages/tshark.html) — command-line packet capture and protocol analysis
-- [OpenSSL](https://docs.openssl.org/master/man1/openssl/) — TLS certificate, connection, and cryptography diagnostics
+- [ProjectDiscovery tools](https://projectdiscovery.io/open-source) — asset discovery, HTTP probing, crawling, port scanning, and vulnerability scanning
 - [`websocat`](https://github.com/vi/websocat) — command-line WebSocket client and data relay
 - [Playwright CLI](https://playwright.dev/docs/getting-started-cli) — token-efficient browser automation for coding agents
