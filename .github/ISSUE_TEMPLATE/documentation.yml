@@ -34,6 +34,8 @@ body:
     attributes:
       label: Proposed Change
       description: Describe the intended correction, addition, or reorganization.
+    validations:
+      required: true
 
   - type: textarea
     id: acceptance-criteria
