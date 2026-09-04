@@ -1,6 +1,6 @@
 ---
 name: ui-implementation-loop
-description: Implement one UI page from design/panels.png and iteratively refine screenshots against its reference panel. Use after the page's UI-free background asset has been generated.
+description: Implement one UI page and iteratively refine screenshots against its full-resolution design reference. Use after the page reference and UI-free background assets have been generated.
 ---
 
 # UI Implementation Loop
@@ -12,26 +12,27 @@ overview or extract its background assets.
 ## Input
 
 1. Read the page name from the invocation.
-2. Use `design/panels.png` as the canonical reference for the page's complete
-   content, layout, and visual direction.
-3. Use `design/<page-name>-background.png` as the page's full-screen,
+2. Use `design/panels.png` as the canonical cross-page design overview.
+3. Use `design/<page-name>-reference.png` as the full-resolution reference for
+   the page's content, layout, and visual direction.
+4. Use `design/<page-name>-background.png` as the page's full-screen,
    UI-free background asset.
-4. Read the current issue and its acceptance criteria when available.
+5. Read the current issue and its acceptance criteria when available.
 
-If the page name, reference panel, or background asset cannot be identified,
-ask for the missing input before implementing. Do not substitute a different
-page or invent a missing design.
+If the page name, page reference, or background asset cannot be identified, ask
+for the missing input before implementing. Do not substitute a different page
+or invent a missing design.
 
 ## Implement
 
 1. Inspect the existing project structure, styling system, shared components,
    and commands before editing.
 2. Identify the target platform, route or screen, viewport, content, states,
-   and interactions from the issue and design panel.
+   and interactions from the issue and page reference.
 3. Implement all text, forms, buttons, icons, navigation, and other controls in
    code over the supplied background asset. Do not bake UI elements into the
    background image.
-4. Recreate the reference panel closely without redesigning or improvising
+4. Recreate the page reference closely without redesigning or improvising
    unless required information is absent. Preserve established project
    conventions and reuse appropriate existing components.
 5. Keep functional behavior, responsiveness, and accessibility requirements
@@ -42,8 +43,8 @@ page or invent a missing design.
 1. Run the app using its existing development workflow in the appropriate
    browser or simulator at the target viewport.
 2. Capture a screenshot of the implemented page.
-3. Compare the complete rendered page with the same page panel in
-   `design/panels.png`.
+3. Compare the complete rendered page with
+   `design/<page-name>-reference.png`.
 4. Identify and correct differences in layout, spacing, typography, colors,
    gradients, controls, borders, radius, shadows, icons, imagery, alignment,
    padding, hierarchy, and image cropping.
