@@ -19,19 +19,6 @@ body:
       required: true
 
   - type: textarea
-    id: design-reference
-    attributes:
-      label: UI Design Reference
-      description: >
-        For UI work, drag or paste the generated design image here. You may
-        also include the image-generation prompt, aspect ratio, or a link to
-        the design reference. Leave blank for non-UI changes.
-      placeholder: |
-        <!-- Drag or paste the design image here -->
-        Aspect ratio: 16:9
-        Prompt or design link:
-
-  - type: textarea
     id: dependencies
     attributes:
       label: Dependencies

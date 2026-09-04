@@ -26,9 +26,9 @@ CI runs `pnpm run verify`, so local and remote completion gates are identical.
 
 ## Documentation
 
-- [AI workflow](docs/ai.md)
+- [Workflows](docs/workflows.md)
+- [Agent execution](docs/agents/README.md)
 - [Development](docs/development.md)
-- [Settings](docs/settings.md)
 - [Conventions](docs/conventions.md)
 - [Repository settings](docs/repository-settings.md)
 - [References](docs/references/README.md)
