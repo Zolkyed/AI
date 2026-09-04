@@ -1,6 +1,6 @@
 {
   "name": "ai",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "private": true,
   "description": "Reusable TypeScript repository template for AI-assisted development.",
   "type": "module",
