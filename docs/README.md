@@ -5,10 +5,10 @@ Use this index to find the repository's authoritative development and design gui
 ## Development
 
 - [Development workflow](development.md) — setup, commands, verification, and debugging
-- [Developer settings](settings.md) — Git and GitHub automation settings
 - [Conventions](conventions.md) — TypeScript, naming, testing, branches, commits, and pull request titles
 - [Repository settings](repository-settings.md) — GitHub merge, ruleset, Actions, and security configuration
-- [AI workflow](ai.md) — issue sessions, checkout strategy, and delivery lifecycle
+- [Workflows](workflows.md) — planning, issues, implementation, review, and delivery
+- [Agent execution](agents/README.md) — sessions, worktrees, environment, and development modes
 - [References](references/README.md) — agent commands, skills, MCP, and supporting CLI tools
 
 ## Architecture

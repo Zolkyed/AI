@@ -8,3 +8,4 @@ Add a folder here with a `SKILL.md` file (frontmatter + instructions) to define 
 - `/retry-issue` — discard a rejected attempt safely and iterate on the issue.
 - `/start-issue` — revalidate an issue and prepare its implementation plan.
 - `/ui-design-prompt` — generate a UI image-generation prompt from a product plan.
+- `/ui-implementation-loop` — implement one UI page and refine it against its design panel.

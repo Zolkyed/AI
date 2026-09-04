@@ -1,0 +1,90 @@
+name: UI page
+description: Implement one page or tightly coupled flow from an approved design
+title: 'feat: '
+labels: ['enhancement', 'ui']
+body:
+  - type: textarea
+    id: page
+    attributes:
+      label: Page / Flow
+      description: Describe the page, its purpose, and the user who needs it.
+    validations:
+      required: true
+
+  - type: textarea
+    id: design-references
+    attributes:
+      label: Design References
+      description: >
+        Identify the original panel and background paths, then drag or paste
+        both images here. The issue is not implementation-ready without them.
+      placeholder: |
+        Canonical reference: design/panels.png — <panel name>
+        Background asset: design/<page-name>-background.png
+
+        <!-- Drag or paste the panel and background images here -->
+    validations:
+      required: true
+
+  - type: input
+    id: route
+    attributes:
+      label: Route / Screen
+      description: Provide the web route or mobile screen name.
+      placeholder: /sign-in or SignInScreen
+    validations:
+      required: true
+
+  - type: input
+    id: viewport
+    attributes:
+      label: Platform / Viewport
+      description: Identify the target platform, device, and viewport dimensions.
+      placeholder: Expo — iPhone 16 Pro — 402 × 874
+    validations:
+      required: true
+
+  - type: textarea
+    id: states
+    attributes:
+      label: Required States
+      description: List the default, loading, empty, validation, error, and success states that apply.
+      placeholder: |
+        - Default
+        - Loading
+        - Validation error
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance Criteria
+      description: Include visual, functional, responsive, and accessibility requirements.
+      placeholder: |
+        - [ ] Page matches its panel reference at the target viewport
+        - [ ] Required interactions and states work
+        - [ ] Responsive and accessibility checks pass
+    validations:
+      required: true
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies
+      description: List prerequisite or blocked issues using #issue-number.
+      placeholder: |
+        Depends on: #12
+        Blocks: #15
+
+  - type: textarea
+    id: files-touched
+    attributes:
+      label: Files / Modules Touched (expected)
+      description: List expected files or modules to flag worktree overlap.
+      placeholder: |
+        - path/to/file.tsx — what changes here
+
+  - type: textarea
+    id: out-of-scope
+    attributes:
+      label: Out of Scope
+      description: List related work intentionally excluded from this issue.
