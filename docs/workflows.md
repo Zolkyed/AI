@@ -6,16 +6,16 @@ The development loop is: **Plan → Generate UI Design → Break Into Features �
 Build One Feature → Self Check → Open PR → AI Code Review → Fix Issues →
 Deliver.** Every implementation requires a GitHub issue.
 
-## 1. Plan
+## 1. Plan & Describe Project
 
-For complex work, use `/project-plan` to define the product, users, scope, flows,
-architecture, risks, and constraints. Small, well-defined changes may skip the
-interview.
+For complex work, use `/project-plan` to define the product, users, scope,
+flows, architecture, risks, and constraints. Approve the result and save it as
+`plan.md`. Small, well-defined changes may skip the interview.
 
 ## 2. Generate UI Design
 
-Skip this step for work without a user interface. Generate a prompt from the
-completed plan:
+Skip this step for work without a user interface. Use AI to design the screens,
+layout, and visual style. Generate a prompt from the completed plan:
 
 ```text
 /ui-design-prompt @plan.md --aspect-ratio 16:9

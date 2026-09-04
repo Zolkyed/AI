@@ -44,11 +44,18 @@ Adapt the interview to the project and skip topics that are not relevant:
 
 ## When the interview is done
 
-Once you have enough information to remove guesswork, stop asking questions and produce:
+Once you have enough information to remove guesswork, stop asking questions and
+produce:
 
-1. A concise **spec summary** covering the product, users, scope in and out, core flows, data model, architecture, and integrations.
+1. A concise **spec summary** covering the product, users, scope in and out,
+   core flows, data model, architecture, and integrations.
 2. A list of every **ASSUMPTION** made where I did not give a firm answer.
 3. A list of **OPEN RISKS / unknowns** that could still cause problems.
-4. Only then, ask me: "Ready for me to turn this into an implementation plan?"
+4. Only then, ask: "Approve this project plan and save it as `plan.md`?"
+
+Do not write the file before explicit approval. After approval, save the
+finalized plan as `plan.md` at the repository root. If `plan.md` already exists,
+ask before replacing it. Do not create issues, scaffold, or implement code as
+part of this command.
 
 Begin by asking me your first batch of questions about the project I'm about to describe.
