@@ -16,13 +16,15 @@ body:
     attributes:
       label: Design References
       description: >
-        Identify the original panel and background paths, then drag or paste
-        both images here. The issue is not implementation-ready without them.
+        Identify the overview, full-resolution page reference, and background
+        paths, then drag or paste the page assets here. The issue is not
+        implementation-ready without them.
       placeholder: |
-        Canonical reference: design/panels.png — <panel name>
+        Design overview: design/panels.png — <panel name>
+        Page reference: design/<page-name>-reference.png
         Background asset: design/<page-name>-background.png
 
-        <!-- Drag or paste the panel and background images here -->
+        <!-- Drag or paste the page reference and background images here -->
     validations:
       required: true
 
@@ -60,7 +62,7 @@ body:
       label: Acceptance Criteria
       description: Include visual, functional, responsive, and accessibility requirements.
       placeholder: |
-        - [ ] Page matches its panel reference at the target viewport
+        - [ ] Page matches its full-resolution reference at the target viewport
         - [ ] Required interactions and states work
         - [ ] Responsive and accessibility checks pass
     validations:

@@ -8,7 +8,7 @@ Deliver.** Every implementation requires a GitHub issue.
 
 ## 1. Plan
 
-For complex work, use `/plan` to define the product, users, scope, flows,
+For complex work, use `/project-plan` to define the product, users, scope, flows,
 architecture, risks, and constraints. Small, well-defined changes may skip the
 interview.
 
@@ -29,9 +29,11 @@ as `design/panels.png`; it is the canonical design reference.
 
 Prepare every panel before creating implementation issues:
 
-1. Remove its UI elements and expand only its background to full screen.
-2. Save it as `design/<page-name>-background.png`.
-3. Repeat until every panel has a prepared background.
+1. Expand the complete panel to full resolution and save it as
+   `design/<page-name>-reference.png`.
+2. Remove its UI elements and save the remaining full-screen background as
+   `design/<page-name>-background.png`.
+3. Repeat until every panel has both assets.
 
 ## 3. Break Into Features
 
@@ -41,8 +43,10 @@ criteria. Use `/whats-next` to select a ready issue.
 
 ## 4. Build One Feature
 
-Create the issue branch and worktree, then run `/start-issue`. Implement only
-the selected feature and follow `AGENTS.md` and `docs/conventions.md`.
+Create the issue branch and worktree, enter the agent's `/plan` mode, then run
+`/start-issue` to prepare a focused implementation plan. Approve the plan and
+leave planning mode before editing. Implement only the selected feature and
+follow `AGENTS.md` and `docs/conventions.md`.
 
 For a UI page, run:
 
@@ -51,8 +55,8 @@ For a UI page, run:
 ```
 
 The skill implements the UI in code over the prepared background, captures the
-page at the target viewport, compares it with the original panel in
-`design/panels.png`, and refines it until its acceptance criteria pass.
+page at the target viewport, compares it with its full-resolution reference,
+and refines it until its acceptance criteria pass.
 
 ![Build the screen, capture a screenshot, compare it with the design, and refine until it matches](assets/ui-build-verification-loop.png)
 
@@ -103,7 +107,8 @@ changes.
   constraints and technical decisions.
 - The `GitHub issue` defines scope, behavior, target platform, viewport, states,
   and acceptance criteria.
-- `design/panels.png` defines the approved visual target.
+- `design/panels.png` defines the approved cross-page design, while
+  `design/<page-name>-reference.png` defines the detailed visual target.
 - Tests and required checks define executable verification and protect existing
   behavior.
 - `design/<page-name>-background.png` and other generated assets support the
