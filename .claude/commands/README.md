@@ -2,5 +2,5 @@
 
 Add a `.md` file here and it becomes `/<filename>` in any Claude Code session working in this repository. Example: `commands/deploy.md` → `/deploy`.
 
-- `/whats-next` — recommend the next ready GitHub issue to implement.
-- `/project-plan` — define and save an approved product plan as `plan.md`.
+- [`/project-plan`](project-plan.md) — define and save an approved product plan as `PLAN.md`.
+- [`/whats-next`](whats-next.md) — recommend the next ready GitHub issue to implement.

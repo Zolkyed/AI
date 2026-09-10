@@ -6,19 +6,24 @@ The development loop is: **Plan → Generate UI Design → Break Into Features �
 Build One Feature → Self Check → Open PR → AI Code Review → Fix Issues →
 Deliver.** Every implementation requires a GitHub issue.
 
+The named slash commands are committed Claude Code extensions. When using a
+different agent, perform the equivalent step described in this document.
+
 ## 1. Plan & Describe Project
 
-For complex work, use `/project-plan` to define the product, users, scope,
-flows, architecture, risks, and constraints. Approve the result and save it as
-`plan.md`. Small, well-defined changes may skip the interview.
+For complex work, use [`/project-plan`](../.claude/commands/project-plan.md) to
+define the product, users, scope, flows, architecture, risks, and constraints.
+Approve the result and save it as `PLAN.md`. Small, well-defined changes may
+skip the interview.
 
 ## 2. Generate UI Design
 
 Skip this step for work without a user interface. Use AI to design the screens,
-layout, and visual style. Generate a prompt from the completed plan:
+layout, and visual style. Generate a prompt from the completed plan with the
+[`/ui-design-prompt`](../.claude/skills/ui-design-prompt/SKILL.md) skill:
 
 ```text
-/ui-design-prompt @plan.md --aspect-ratio 16:9
+/ui-design-prompt @PLAN.md --aspect-ratio 16:9
 ```
 
 Paste it into an image-generation tool. Generate one 16:9 overview with every
@@ -37,18 +42,22 @@ Prepare every panel before creating implementation issues:
 
 ## 3. Break Into Features
 
-Use `/create-issue` to split the plan into verifiable features. For UI, create
-one issue per page or flow with its design assets, target, and acceptance
-criteria. Use `/whats-next` to select a ready issue.
+Use [`/create-issue`](../.claude/skills/create-issue/SKILL.md) to split the plan
+into verifiable features. For UI, create one issue per page or flow with its
+design assets, target, and acceptance criteria. Use
+[`/whats-next`](../.claude/commands/whats-next.md) to select a ready issue.
 
 ## 4. Build One Feature
 
 Create the issue branch and worktree, enter the agent's `/plan` mode, then run
-`/start-issue` to prepare a focused implementation plan. Approve the plan and
-leave planning mode before editing. Implement only the selected feature and
-follow `AGENTS.md` and `docs/conventions.md`.
+[`/start-issue`](../.claude/skills/start-issue/SKILL.md) to prepare a focused
+implementation plan. Approve the plan and leave planning mode before editing.
+Implement only the selected feature and follow [`AGENTS.md`](../AGENTS.md) and
+[the conventions](conventions.md).
 
-For a UI page, run:
+For a UI page, run the
+[`/ui-implementation-loop`](../.claude/skills/ui-implementation-loop/SKILL.md)
+skill:
 
 ```text
 /ui-implementation-loop <page-name>
@@ -75,13 +84,15 @@ behavior before requesting review.
 
 ## 6. Open the Pull Request
 
-Run `/finish-issue` to revalidate the issue, update affected documentation, run
-`pnpm run verify`, audit the diff, and create the Conventional Commit. Then run
-`/prepare-pr` to verify the branch and create a pull request containing
-`Closes #<issue>`.
+Run [`/finish-issue`](../.claude/skills/finish-issue/SKILL.md) to revalidate the
+issue, update affected documentation, run `pnpm run verify`, audit the diff,
+and create the Conventional Commit. Then run
+[`/prepare-pr`](../.claude/skills/prepare-pr/SKILL.md) to verify the branch and
+create a pull request containing `Closes #<issue>`.
 
 ## 7. AI Code Review
 
+After [automatic AI review is configured](repository-settings.md#automatic-ai-review),
 CodeRabbit reviews the pull request for bugs, security issues, missing tests,
 edge cases, convention violations, and unnecessary changes.
 
@@ -95,9 +106,10 @@ CodeRabbit review loop until all findings are resolved or explicitly addressed.
 After CI passes, CodeRabbit findings are resolved, and approval is complete, a
 human squash-merges the pull request and removes the worktree.
 
-If features remain, use `/whats-next` and return to **Build One Feature**. The
-project is complete when all planned features are implemented, reviewed,
-verified, documented, and delivered. Use `/retry-issue` only when an attempt or
+If features remain, use [`/whats-next`](../.claude/commands/whats-next.md) and
+return to **Build One Feature**. The project is complete when all planned
+features are implemented, reviewed, verified, documented, and delivered. Use
+[`/retry-issue`](../.claude/skills/retry-issue/SKILL.md) only when an attempt or
 issue definition is unsatisfactory; it requires confirmation before discarding
 changes.
 
