@@ -51,10 +51,10 @@ produce:
    core flows, data model, architecture, and integrations.
 2. A list of every **ASSUMPTION** made where I did not give a firm answer.
 3. A list of **OPEN RISKS / unknowns** that could still cause problems.
-4. Only then, ask: "Approve this project plan and save it as `plan.md`?"
+4. Only then, ask: "Approve this project plan and save it as `PLAN.md`?"
 
 Do not write the file before explicit approval. After approval, save the
-finalized plan as `plan.md` at the repository root. If `plan.md` already exists,
+finalized plan as `PLAN.md` at the repository root. If `PLAN.md` already exists,
 ask before replacing it. Do not create issues, scaffold, or implement code as
 part of this command.
 

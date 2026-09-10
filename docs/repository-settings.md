@@ -38,7 +38,13 @@ Grant additional permissions in the workflow or job that needs them.
 
 ## Automatic AI Review
 
-Configure the selected provider:
+Configure CodeRabbit, the reviewer used by the documented
+[pull request workflow](workflows.md#7-ai-code-review):
+
+- [ ] **CodeRabbit:** Install the CodeRabbit GitHub App, grant access to the repository, and enable automatic reviews for pull requests.
+
+If the project replaces CodeRabbit, configure one of these alternatives and
+update the workflow documentation in the same change:
 
 - [ ] **GitHub Copilot:** Under **Rules → Rulesets**, enable **Automatically request Copilot code review** for the target branches.
 - [ ] **Codex:** Add Codex code review to the GitHub repository or organization and enable automatic review for every pull request.

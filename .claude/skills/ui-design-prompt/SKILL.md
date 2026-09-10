@@ -1,6 +1,6 @@
 ---
 name: ui-design-prompt
-description: Generate a polished UI design image-generation prompt from @plan.md or another product plan, including the requested aspect ratio. Use when the user wants visual design exploration or a prompt for an AI image generator.
+description: Generate a polished UI design image-generation prompt from @PLAN.md or another product plan, including the requested aspect ratio. Use when the user wants visual design exploration or a prompt for an AI image generator.
 ---
 
 # UI Design Prompt
@@ -12,7 +12,7 @@ UI, generate an image, or create project files.
 ## Input
 
 1. Read the plan file named by the user. If no file is specified, read
-   `@plan.md` from the current workspace.
+   `@PLAN.md` from the current workspace.
 2. Read the requested aspect ratio from the invocation. Accept common ratios
    such as `16:9`, `9:16`, `4:3`, `3:4`, and `1:1`.
 3. If the plan file cannot be found, ask the user for its path. If the aspect
@@ -67,5 +67,5 @@ from the plan.
 ## Example invocation
 
 ```text
-/ui-design-prompt @plan.md --aspect-ratio 16:9
+/ui-design-prompt @PLAN.md --aspect-ratio 16:9
 ```

@@ -6,7 +6,7 @@ Use this index to find the repository's authoritative development and design gui
 
 - [Development workflow](development.md) — setup, commands, verification, and debugging
 - [Conventions](conventions.md) — TypeScript, naming, testing, branches, commits, and pull request titles
-- [Repository settings](repository-settings.md) — GitHub merge, ruleset, Actions, and security configuration
+- [Repository settings](repository-settings.md) — GitHub merge, ruleset, Actions, AI review, and security configuration
 - [Workflows](workflows.md) — planning, issues, implementation, review, and delivery
 - [Agent execution](agents/README.md) — sessions, worktrees, environment, and development modes
 - [References](references/README.md) — agent commands, skills, MCP, and supporting CLI tools
@@ -21,5 +21,23 @@ Use this index to find the repository's authoritative development and design gui
 
 - [API documentation](api/README.md) — API contracts and usage guidance
 - [HTTP requests](api/requests/README.md) — conventions for runnable manual `.http` examples
+
+## Sources of Truth
+
+Keep each rule in its canonical document and link to it elsewhere instead of
+maintaining competing copies:
+
+| Topic                                               | Canonical document                            |
+| --------------------------------------------------- | --------------------------------------------- |
+| Setup, commands, and verification                   | [Development](development.md)                 |
+| Branches, commits, pull requests, code, and testing | [Conventions](conventions.md)                 |
+| Issue-to-delivery lifecycle                         | [Workflows](workflows.md)                     |
+| Worktrees and agent sessions                        | [Agent execution](agents/README.md)           |
+| GitHub repository configuration                     | [Repository settings](repository-settings.md) |
+| System boundaries and technical decisions           | [Architecture](architecture/README.md)        |
+
+When a configuration file is executable—for example `package.json` scripts or
+a GitHub Actions workflow—it is the final authority. Update its canonical
+document in the same change whenever behavior changes.
 
 Add new documents only when they contain durable project knowledge that cannot be reliably inferred from the code or configuration.
