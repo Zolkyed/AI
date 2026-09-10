@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="2470" viewBox="0 0 1600 2470" role="img" aria-labelledby="title desc">
+  <title id="title">Project development workflow decision diagram</title>
+  <desc id="desc">A flowchart from project planning through UI design selection, feature implementation, review, merging, and delivery, with diamond-shaped decisions and labeled branches.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569" />
+    </marker>
+    <style>
+      .canvas { fill: #f8fafc; }
+      .step { fill: #ffffff; stroke: #2563eb; stroke-width: 3; rx: 18; }
+      .design { fill: #eff6ff; stroke: #2563eb; stroke-width: 3; rx: 18; }
+      .decision { fill: #fff7ed; stroke: #ea580c; stroke-width: 3; }
+      .terminal { fill: #ecfdf5; stroke: #059669; stroke-width: 3; rx: 32; }
+      .line { fill: none; stroke: #475569; stroke-width: 3; marker-end: url(#arrow); }
+      .label { font: 600 24px system-ui, sans-serif; fill: #0f172a; text-anchor: middle; dominant-baseline: middle; }
+      .small { font: 500 19px system-ui, sans-serif; fill: #334155; text-anchor: middle; dominant-baseline: middle; }
+      .branch { font: 700 18px system-ui, sans-serif; fill: #9a3412; text-anchor: middle; }
+      .heading { font: 700 34px system-ui, sans-serif; fill: #0f172a; text-anchor: middle; }
+    </style>
+  </defs>
+
+  <rect class="canvas" width="1600" height="2470" />
+  <text class="heading" x="800" y="48">Project Development Workflow</text>
+
+  <rect class="terminal" x="650" y="80" width="300" height="70" />
+  <text class="label" x="800" y="115">Start</text>
+
+  <rect class="step" x="580" y="205" width="440" height="90" />
+  <text class="label" x="800" y="240">Plan &amp; Describe Project</text>
+  <text class="small" x="800" y="272">Approve PLAN.md</text>
+
+  <polygon class="decision" points="800,350 980,430 800,510 620,430" />
+  <text class="label" x="800" y="430">UI required?</text>
+
+  <polygon class="decision" points="800,565 1010,665 800,765 590,665" />
+  <text class="label" x="800" y="648">UI reference</text>
+  <text class="label" x="800" y="680">source?</text>
+
+  <rect class="design" x="90" y="825" width="400" height="105" />
+  <text class="label" x="290" y="860">Generated Design</text>
+  <text class="small" x="290" y="897">PLAN.md → prompt → image</text>
+
+  <rect class="design" x="600" y="825" width="400" height="105" />
+  <text class="label" x="800" y="860">Provided Design</text>
+  <text class="small" x="800" y="897">Figma, screenshot, or spec</text>
+
+  <rect class="design" x="1110" y="825" width="400" height="105" />
+  <text class="label" x="1310" y="860">Existing Website</text>
+  <text class="small" x="1310" y="897">DevTools → captured reference</text>
+
+  <polygon class="decision" points="800,990 1010,1080 800,1170 590,1080" />
+  <text class="label" x="800" y="1064">References</text>
+  <text class="label" x="800" y="1096">approved?</text>
+
+  <rect class="step" x="580" y="1225" width="440" height="80" />
+  <text class="label" x="800" y="1265">Break Into Feature Issues</text>
+
+  <rect class="step" x="580" y="1360" width="440" height="90" />
+  <text class="label" x="800" y="1390">Build One Feature</text>
+  <text class="small" x="800" y="1422">Implement → screenshot → compare</text>
+
+  <polygon class="decision" points="800,1500 990,1580 800,1660 610,1580" />
+  <text class="label" x="800" y="1564">Self-check</text>
+  <text class="label" x="800" y="1596">passed?</text>
+
+  <rect class="step" x="580" y="1710" width="440" height="90" />
+  <text class="label" x="800" y="1740">Finish Issue &amp; Prepare PR</text>
+  <text class="small" x="800" y="1772">Verify, commit, and create PR</text>
+
+  <polygon class="decision" points="800,1850 1010,1940 800,2030 590,1940" />
+  <text class="label" x="800" y="1924">CI and AI review</text>
+  <text class="label" x="800" y="1956">passed?</text>
+
+  <rect class="step" x="1110" y="1895" width="330" height="90" />
+  <text class="label" x="1275" y="1925">Fix Issues</text>
+  <text class="small" x="1275" y="1958">Verify and push again</text>
+
+  <rect class="step" x="580" y="2080" width="440" height="80" />
+  <text class="label" x="800" y="2120">Human Squash Merge</text>
+
+  <polygon class="decision" points="800,2210 990,2290 800,2370 610,2290" />
+  <text class="label" x="800" y="2274">Features</text>
+  <text class="label" x="800" y="2306">remaining?</text>
+
+  <rect class="step" x="100" y="2245" width="360" height="90" />
+  <text class="label" x="280" y="2275">Select Next Ready Issue</text>
+  <text class="small" x="280" y="2308">Create its branch and worktree</text>
+
+  <rect class="terminal" x="650" y="2400" width="300" height="60" />
+  <text class="label" x="800" y="2430">Deliver</text>
+
+  <path class="line" d="M800 150 V205" />
+  <path class="line" d="M800 295 V350" />
+  <path class="line" d="M800 510 V565" />
+  <text class="branch" x="830" y="545">Yes</text>
+
+  <path class="line" d="M620 430 H30 V1265 H580" />
+  <text class="branch" x="570" y="415">No</text>
+
+  <path class="line" d="M650 720 L290 825" />
+  <path class="line" d="M800 765 V825" />
+  <path class="line" d="M950 720 L1310 825" />
+
+  <path class="line" d="M290 930 V960 H700 L735 1007" />
+  <path class="line" d="M800 930 V990" />
+  <path class="line" d="M1310 930 V960 H900 L865 1007" />
+
+  <path class="line" d="M800 1170 V1225" />
+  <text class="branch" x="830" y="1205">Yes</text>
+  <path class="line" d="M1010 1080 H1560 V665 H1010" />
+  <text class="branch" x="1050" y="1065">No</text>
+
+  <path class="line" d="M800 1305 V1360" />
+  <path class="line" d="M800 1450 V1500" />
+  <path class="line" d="M800 1660 V1710" />
+  <text class="branch" x="830" y="1688">Yes</text>
+  <path class="line" d="M610 1580 H530 V1405 H580" />
+  <text class="branch" x="565" y="1565">No</text>
+
+  <path class="line" d="M800 1800 V1850" />
+  <path class="line" d="M1010 1940 H1110" />
+  <text class="branch" x="1055" y="1925">No</text>
+  <path class="line" d="M1275 1895 V1825 H1020 V1755" />
+
+  <path class="line" d="M800 2030 V2080" />
+  <text class="branch" x="830" y="2058">Yes</text>
+  <path class="line" d="M800 2160 V2210" />
+  <path class="line" d="M610 2290 H460" />
+  <text class="branch" x="535" y="2275">Yes</text>
+  <path class="line" d="M100 2290 H50 V1405 H580" />
+  <path class="line" d="M800 2370 V2400" />
+  <text class="branch" x="830" y="2392">No</text>
+</svg>

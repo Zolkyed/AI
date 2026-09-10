@@ -1,6 +1,6 @@
 # Workflows
 
-[![Project Development Workflow](assets/project-development-workflow.png)](https://app.eraser.io/workspace/G8EpIWj7GwrSKfuByKA6)
+![Project Development Workflow with decision branches](assets/project-development-workflow-decisions.svg)
 
 The development loop is: **Plan → UI Design → Break Into Features → Build One
 Feature → Self Check → Open PR → AI Code Review → Fix Issues → Deliver.** Every
