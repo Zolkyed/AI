@@ -1,5 +1,39 @@
 # Changelog
 
+## [1.5.0](https://github.com/Zolkyed/AI/compare/v1.4.0...v1.5.0) (2026-09-10)
+
+
+### 🚀 Features
+
+* add multi-source UI workflow ([#102](https://github.com/Zolkyed/AI/issues/102)) ([25eabd7](https://github.com/Zolkyed/AI/commit/25eabd7cdf513c3e88bf3edb7241ed0e4c4b5045))
+* add repository tmux configuration ([cf99d56](https://github.com/Zolkyed/AI/commit/cf99d56b959decb5379ed90f92d1c6be317fa247))
+* configure one-based tmux windows ([#73](https://github.com/Zolkyed/AI/issues/73)) ([98646e9](https://github.com/Zolkyed/AI/commit/98646e99b45eddea9baac666b910a8092e0c8c94))
+
+
+### 📝 Documentation
+
+* add documentation issue template ([5e94079](https://github.com/Zolkyed/AI/commit/5e94079d12614bebb19c1a1c1729852b7112462b)), closes [#81](https://github.com/Zolkyed/AI/issues/81)
+* add workflow decision diagram ([#106](https://github.com/Zolkyed/AI/issues/106)) ([775c9e2](https://github.com/Zolkyed/AI/commit/775c9e266a4dd0b4639dceb95669c76e9e2063cd))
+* align AI workflow with development diagram ([#86](https://github.com/Zolkyed/AI/issues/86)) ([e441d61](https://github.com/Zolkyed/AI/commit/e441d61c61da0f6b69f133f2415badf2babc7dd4))
+* align repository documentation ([#100](https://github.com/Zolkyed/AI/issues/100)) ([6d9afd7](https://github.com/Zolkyed/AI/commit/6d9afd7e9182c708046d137342179b7332880e21))
+* clarify UI implementation workflow ([#92](https://github.com/Zolkyed/AI/issues/92)) ([56a9158](https://github.com/Zolkyed/AI/commit/56a9158020ebd0a68741aa00eb12503cfff4b00c))
+* document technology stack ([#90](https://github.com/Zolkyed/AI/issues/90)) ([c6770a2](https://github.com/Zolkyed/AI/commit/c6770a298a7970fdb183b21d7df74ed393ecf0e1))
+* document UI design prompt workflow ([#88](https://github.com/Zolkyed/AI/issues/88)) ([9b9b702](https://github.com/Zolkyed/AI/commit/9b9b7029e00ccb46f336e734ff44dc5ea2106f03))
+* improve AI workflow guidance ([dbcbff2](https://github.com/Zolkyed/AI/commit/dbcbff229a94eb94b46e8d6491e9726b4bf17cef)), closes [#77](https://github.com/Zolkyed/AI/issues/77)
+* refine UI design references ([#94](https://github.com/Zolkyed/AI/issues/94)) ([2b9ba23](https://github.com/Zolkyed/AI/commit/2b9ba23640c41712c85eb8c879af7807fca09237))
+* refine workflow decision diagram ([#108](https://github.com/Zolkyed/AI/issues/108)) ([5bea508](https://github.com/Zolkyed/AI/commit/5bea5080844e87b2bd5502c2e1cd8e5745765e60))
+* require proposed documentation change ([#84](https://github.com/Zolkyed/AI/issues/84)) ([eff4ebf](https://github.com/Zolkyed/AI/commit/eff4ebf7e73b629f2a41eb5f447c1364dd52a9ee))
+* save approved project plan ([#96](https://github.com/Zolkyed/AI/issues/96)) ([c1fc569](https://github.com/Zolkyed/AI/commit/c1fc569a910d586e83930c8dc2d9c02666850a01))
+* unify UI design workflow ([#104](https://github.com/Zolkyed/AI/issues/104)) ([c83f7d6](https://github.com/Zolkyed/AI/commit/c83f7d692219c002bb0f2cdff5500a41d22a41e1))
+* update AI tooling workflow ([#75](https://github.com/Zolkyed/AI/issues/75)) ([8f17477](https://github.com/Zolkyed/AI/commit/8f17477377ac57911be054c7b8bd2d1415f588c2))
+
+
+### 🔧 Maintenance
+
+* **deps:** bump the pnpm-minor-and-patch group with 4 updates ([#74](https://github.com/Zolkyed/AI/issues/74)) ([7195894](https://github.com/Zolkyed/AI/commit/71958947abcff4a61bc69b7154e399bdbc0d1c64))
+* enforce TypeScript naming conventions ([9e3ecda](https://github.com/Zolkyed/AI/commit/9e3ecda0714eade951e814988f15ff2dc6bce976)), closes [#79](https://github.com/Zolkyed/AI/issues/79)
+* remove tmux configuration ([7e54bd2](https://github.com/Zolkyed/AI/commit/7e54bd2ea741f7e2704ffff42ef8df96571a58ab))
+
 ## [1.4.0](https://github.com/Zolkyed/AI/compare/v1.3.1...v1.4.0) (2026-08-23)
 
 
