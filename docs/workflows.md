@@ -2,9 +2,9 @@
 
 [![Project Development Workflow](assets/project-development-workflow.png)](https://app.eraser.io/workspace/G8EpIWj7GwrSKfuByKA6)
 
-The development loop is: **Plan → Generate UI Design → Break Into Features →
-Build One Feature → Self Check → Open PR → AI Code Review → Fix Issues →
-Deliver.** Every implementation requires a GitHub issue.
+The development loop is: **Plan → UI Design → Break Into Features → Build One
+Feature → Self Check → Open PR → AI Code Review → Fix Issues → Deliver.** Every
+implementation requires a GitHub issue.
 
 The named slash commands are committed Claude Code extensions. When using a
 different agent, perform the equivalent step described in this document.
@@ -16,10 +16,14 @@ define the product, users, scope, flows, architecture, risks, and constraints.
 Approve the result and save it as `PLAN.md`. Small, well-defined changes may
 skip the interview.
 
-## 2. Generate UI Design
+## 2. UI Design
 
-Skip this step for work without a user interface. Use AI to design the screens,
-layout, and visual style. Generate a prompt from the completed plan with the
+Skip this step for work without a user interface. Choose one source for the UI
+references:
+
+### Generated Design
+
+Generate a prompt from the completed plan with the
 [`/ui-design-prompt`](../.claude/skills/ui-design-prompt/SKILL.md) skill:
 
 ```text
@@ -32,13 +36,32 @@ as `design/panels.png`; it is the canonical design reference.
 
 ![Generate the full UI design, upscale one screen, and implement it](assets/ui-design-workflow.png)
 
-Prepare every panel before creating implementation issues:
+### Provided Design
 
-1. Expand the complete panel to full resolution and save it as
+Use a Figma frame or export, screenshot, mockup, or design-system specification
+provided by the user. Confirm which artifact applies to each page, viewport,
+and state. Export complete page references when the provided design does not
+already include them.
+
+### Existing Website
+
+For an authorized existing website, use browser or Chrome DevTools tooling to
+inspect only the permitted pages and capture complete references at the
+required desktop and mobile viewports. Record the states and interactions that
+the implementation must preserve. Do not copy source code or reuse proprietary
+branding, text, imagery, fonts, or other assets without permission.
+
+### Prepare References
+
+Every source must produce approved references before creating implementation
+issues:
+
+1. Save each complete page as
    `design/<page-name>-reference.png`.
 2. Save any authorized artwork, textures, icons, or images required by the
    implementation under `design/assets/`.
-3. Repeat until every panel has a reference and any necessary assets.
+3. Add viewport or state suffixes when multiple references would otherwise
+   collide.
 
 ## 3. Break Into Features
 
@@ -57,34 +80,21 @@ Implement only the selected feature and follow [`AGENTS.md`](../AGENTS.md) and
 
 For a UI page, run the
 [`/ui-implementation-loop`](../.claude/skills/ui-implementation-loop/SKILL.md)
-skill with one of three reference sources:
+skill with the approved reference:
 
 ```text
 /ui-implementation-loop <page-name>
 ```
 
-```text
-Generated design: PLAN.md → prompt → approved reference ┐
-Provided design:  Figma, screenshot, or specification  ├→ implement → compare → refine
-Existing website: DevTools inspection → captured reference ┘
-```
-
-For a generated or provided design, the skill uses the approved page reference.
-For an existing website, it uses browser or Chrome DevTools tooling to inspect
-the permitted pages and capture references at the required desktop and mobile
-viewports. All modes implement original UI code, capture the local page at
-matching viewports, compare it with the full reference, and refine it until the
+The skill implements original UI code, captures the local page at matching
+viewports, compares it with the full reference, and refines it until the
 acceptance criteria pass.
 
 Use
 [`/replicate-web-ui`](../.claude/skills/replicate-web-ui/SKILL.md) as the direct
 entry point when an existing website is the reference; it selects the existing
-website mode of `/ui-implementation-loop`.
-
-Do not copy a website's source code or reuse proprietary branding, text,
-imagery, fonts, or other assets without permission. Store authorized visual
-assets required by the implementation under `design/assets/`; ordinary
-surfaces, gradients, controls, text, and layout belong in code.
+website mode of `/ui-implementation-loop` and may re-inspect the authorized
+target while implementing its captured reference.
 
 ![Build the screen, capture a screenshot, compare it with the design, and refine until it matches](assets/ui-build-verification-loop.png)
 

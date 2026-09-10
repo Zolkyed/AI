@@ -16,11 +16,13 @@ body:
     attributes:
       label: Design References
       description: >
-        Identify the overview and full-resolution page reference, then drag or
-        paste the reference and any authorized implementation assets here. The
-        issue is not implementation-ready without its reference.
+        Identify the design source, optional overview, and full-resolution page
+        reference, then drag or paste the reference and any authorized
+        implementation assets here. The issue is not implementation-ready
+        without its reference.
       placeholder: |
-        Design overview: design/panels.png — <panel name>
+        Design source: Generated design | Provided design | Existing website
+        Design overview (when available): design/panels.png — <panel name>
         Page reference: design/<page-name>-reference.png
         Optional assets: design/assets/<asset-name>
 
