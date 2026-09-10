@@ -36,9 +36,9 @@ Prepare every panel before creating implementation issues:
 
 1. Expand the complete panel to full resolution and save it as
    `design/<page-name>-reference.png`.
-2. Remove its UI elements and save the remaining full-screen background as
-   `design/<page-name>-background.png`.
-3. Repeat until every panel has both assets.
+2. Save any authorized artwork, textures, icons, or images required by the
+   implementation under `design/assets/`.
+3. Repeat until every panel has a reference and any necessary assets.
 
 ## 3. Break Into Features
 
@@ -57,15 +57,34 @@ Implement only the selected feature and follow [`AGENTS.md`](../AGENTS.md) and
 
 For a UI page, run the
 [`/ui-implementation-loop`](../.claude/skills/ui-implementation-loop/SKILL.md)
-skill:
+skill with one of three reference sources:
 
 ```text
 /ui-implementation-loop <page-name>
 ```
 
-The skill implements the UI in code over the prepared background, captures the
-page at the target viewport, compares it with its full-resolution reference,
-and refines it until its acceptance criteria pass.
+```text
+Generated design: PLAN.md → prompt → approved reference ┐
+Provided design:  Figma, screenshot, or specification  ├→ implement → compare → refine
+Existing website: DevTools inspection → captured reference ┘
+```
+
+For a generated or provided design, the skill uses the approved page reference.
+For an existing website, it uses browser or Chrome DevTools tooling to inspect
+the permitted pages and capture references at the required desktop and mobile
+viewports. All modes implement original UI code, capture the local page at
+matching viewports, compare it with the full reference, and refine it until the
+acceptance criteria pass.
+
+Use
+[`/replicate-web-ui`](../.claude/skills/replicate-web-ui/SKILL.md) as the direct
+entry point when an existing website is the reference; it selects the existing
+website mode of `/ui-implementation-loop`.
+
+Do not copy a website's source code or reuse proprietary branding, text,
+imagery, fonts, or other assets without permission. Store authorized visual
+assets required by the implementation under `design/assets/`; ordinary
+surfaces, gradients, controls, text, and layout belong in code.
 
 ![Build the screen, capture a screenshot, compare it with the design, and refine until it matches](assets/ui-build-verification-loop.png)
 
@@ -123,8 +142,8 @@ changes.
   `design/<page-name>-reference.png` defines the detailed visual target.
 - Tests and required checks define executable verification and protect existing
   behavior.
-- `design/<page-name>-background.png` and other generated assets support the
-  implementation; they are not references.
+- Files under `design/assets/` support the implementation; they are not visual
+  references.
 
 Validate against the issue, visual target, and tests. If they conflict, preserve
 repository constraints and functional or accessibility requirements, then
