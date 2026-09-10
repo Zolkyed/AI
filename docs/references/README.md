@@ -62,7 +62,6 @@ Command availability varies by agent, version, and plan. Consult the provider re
 
 ### Web Scraping
 
-- [Firecrawl MCP](https://docs.firecrawl.dev/mcp-server) — collect public content, search the web, and discover pages
 - [Exa MCP](https://exa.ai/docs/reference/exa-mcp) — search the web and fetch clean page content
 
 ### Workflow Automation

@@ -16,15 +16,15 @@ body:
     attributes:
       label: Design References
       description: >
-        Identify the overview, full-resolution page reference, and background
-        paths, then drag or paste the page assets here. The issue is not
-        implementation-ready without them.
+        Identify the overview and full-resolution page reference, then drag or
+        paste the reference and any authorized implementation assets here. The
+        issue is not implementation-ready without its reference.
       placeholder: |
         Design overview: design/panels.png — <panel name>
         Page reference: design/<page-name>-reference.png
-        Background asset: design/<page-name>-background.png
+        Optional assets: design/assets/<asset-name>
 
-        <!-- Drag or paste the page reference and background images here -->
+        <!-- Drag or paste the page reference and optional assets here -->
     validations:
       required: true
 
