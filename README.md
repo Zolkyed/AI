@@ -19,7 +19,6 @@ CI runs `pnpm run verify`, so local and remote completion gates are identical.
 
 - Husky and lint-staged format and lint staged files.
 - Commitlint enforces Conventional Commit messages locally.
-- DebugMCP lets MCP-capable AI agents use real breakpoints, stepping, and runtime inspection through VS Code.
 - PR convention checks validate branch names and Conventional Commit PR titles.
 - CI reports formatting, lint, type, test, whitespace, and build failures.
 - Squash merging uses the PR title as the commit on `main`, which Release Please uses for versioning and release notes.

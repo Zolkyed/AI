@@ -59,25 +59,3 @@ CI runs `pnpm run verify`, so a local passing result should match the repository
 ## Debugging
 
 Build the project, then use the **Debug application** configuration in VS Code. It launches `dist/index.js` with source maps enabled.
-
-### AI-Assisted Breakpoint Debugging
-
-The recommended [DebugMCP](https://github.com/microsoft/DebugMCP) extension exposes the VS Code debugger to MCP-capable AI agents. It lets an agent set breakpoints, start and stop a debug session, step through execution, inspect selected variables, and evaluate expressions instead of inferring runtime behavior from source code alone.
-
-1. Install the workspace-recommended **DebugMCP** extension (`ozzafar.debugmcpextension`) and the debugger extension required by the language being investigated.
-2. Open the Command Palette and run **DebugMCP: Show Agent Selection Popup** if the extension does not offer to register the current agent automatically.
-3. Build the project with `pnpm run build`. DebugMCP detects the existing **Debug application** launch configuration and its source-map settings.
-4. Give the agent a concrete symptom and require runtime evidence before it edits code. For example:
-
-   ```text
-   Use DebugMCP to investigate why <observable symptom> occurs. Set a breakpoint
-   before <suspected operation>, start the Debug application configuration,
-   inspect only the relevant variables, and step through the failing path.
-   Explain the root cause from runtime evidence before changing the code.
-   ```
-
-5. After the agent proposes or applies a fix, run `pnpm run check` and reproduce the original path to confirm the breakpoint observations and behavior have changed as expected.
-
-Use conditional breakpoints to isolate a specific input or loop iteration, and prefer `list_variable_names` followed by targeted value inspection instead of reading an entire scope. Keep the server bound to its default loopback interface: it exposes debugger controls through a local, unauthenticated endpoint. Do not expose its port to a LAN or other untrusted network.
-
-If the agent cannot see the debugger tools, restart it after registration and confirm that the DebugMCP server is running. If a breakpoint is not hit, verify the source path and line, rebuild the project, and confirm that source maps and the required language debugger are available. See the [DebugMCP troubleshooting guide](https://github.com/microsoft/DebugMCP#troubleshooting) for additional checks.

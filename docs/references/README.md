@@ -60,10 +60,6 @@ Command availability varies by agent, version, and plan. Consult the provider re
 
 - [Chrome DevTools MCP](https://developer.chrome.com/docs/devtools/agents/get-started) — inspect, debug, and automate Chrome
 
-### Debugging
-
-- [DebugMCP](https://github.com/microsoft/DebugMCP) — let MCP-capable AI agents set breakpoints, step through code, and inspect runtime state through VS Code or a standalone DAP adapter
-
 ### Web Scraping
 
 - [Exa MCP](https://exa.ai/docs/reference/exa-mcp) — search the web and fetch clean page content
