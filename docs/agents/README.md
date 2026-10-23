@@ -29,6 +29,10 @@ approve each checkout:
 direnv allow
 ```
 
+API keys normally provided through `.env` will be stored in Windows Credential
+Manager rather than committed files or per-session shell variables, keeping
+them persistent across WSL and agent sessions.
+
 ## Create a Worktree and Agent
 
 Use [Worktrunk](https://worktrunk.dev/) to create the checkout and launch an

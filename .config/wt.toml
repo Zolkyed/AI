@@ -1,20 +1,2 @@
-[aliases]
-copilot = "wt switch -x 'copilot --yolo' {{args}}"
-claude = "wt switch -x 'claude --dangerously-skip-permissions' {{args}}"
-codex = "wt switch -x 'codex --dangerously-bypass-approvals-and-sandbox' {{args}}"
-opencode = "wt switch -x 'opencode --yolo' {{args}}"
-
-[list]
-url = "http://localhost:{{ branch | hash_port }}"
-
-[step.copy-ignored]
-exclude = [".env.local"]
-
 [pre-start]
-copy = "wt step copy-ignored"
-python = "if test -f pyproject.toml; then uv sync --quiet; fi"
-node = "if test -f package.json; then pnpm install --frozen-lockfile; fi"
-port = "echo 'PORT={{ branch | hash_port }}' > .env.local"
-
-[pre-merge]
-verify = "pnpm run verify"
+copy-ignored = "wt step copy-ignored --require-include"
