@@ -1,27 +1,27 @@
 ---
 name: ui-design-prompt
-description: Generate a polished UI design image-generation prompt from @PLAN.md or another product plan, including the requested aspect ratio. Use when the user wants visual design exploration or a prompt for an AI image generator.
+description: Generate a polished UI design image-generation prompt from the current product discussion, a specification issue, or a plan, including the requested aspect ratio.
 ---
 
 # UI Design Prompt
 
-Turn the product plan into a single, ready-to-paste prompt for an AI image
+Turn the available product decisions into a single, ready-to-paste prompt for an AI image
 generator. This skill creates a visual design brief; it does not implement the
 UI, generate an image, or create project files.
 
 ## Input
 
-1. Read the plan file named by the user. If no file is specified, read
-   `@PLAN.md` from the current workspace.
+1. Use the source named by the user: the current conversation, a specification
+   issue, or a plan file. If none is named, use the current conversation.
 2. Read the requested aspect ratio from the invocation. Accept common ratios
    such as `16:9`, `9:16`, `4:3`, `3:4`, and `1:1`.
-3. If the plan file cannot be found, ask the user for its path. If the aspect
+3. If a named source cannot be found, ask the user for it. If the aspect
    ratio is missing and cannot be reasonably inferred from the primary device
    or screen, ask for it before generating the prompt.
 
 ## Process
 
-Extract only design-relevant information from the plan:
+Extract only design-relevant information from the source:
 
 - Product purpose and target users
 - Primary user journey and the most important screen
@@ -67,5 +67,5 @@ from the plan.
 ## Example invocation
 
 ```text
-/ui-design-prompt @PLAN.md --aspect-ratio 16:9
+/ui-design-prompt --aspect-ratio 16:9
 ```

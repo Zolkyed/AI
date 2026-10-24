@@ -1,12 +1,34 @@
 # Skills
 
-Add a folder here with a `SKILL.md` file (frontmatter + instructions) to define a project-specific skill available to the `Skill` tool in any Claude Code session working in this repository. Example: `skills/deploy/SKILL.md` → `/deploy`.
+Matt Pocock's engineering skills are the source of truth for planning,
+specification, ticketing, implementation, testing, review, and PR content. The
+vendored files come from
+[`mattpocock/skills`](https://github.com/mattpocock/skills/tree/main) at commit
+`5beb35b040e3de97e54fa9e386d7e42d15c295c2`; keep them unchanged so they can be
+updated directly from upstream.
 
-- [`/create-issue`](create-issue/SKILL.md) — draft and create a scoped GitHub issue after confirmation.
-- [`/finish-issue`](finish-issue/SKILL.md) — update affected documentation, verify the completed issue, and create its commit.
-- [`/prepare-pr`](prepare-pr/SKILL.md) — verify, draft, and create a pull request after confirmation.
-- [`/replicate-web-ui`](replicate-web-ui/SKILL.md) — reproduce an authorized website through DevTools inspection and iterative screenshot comparison.
-- [`/retry-issue`](retry-issue/SKILL.md) — discard a rejected attempt safely and iterate on the issue.
-- [`/start-issue`](start-issue/SKILL.md) — revalidate an issue and prepare its implementation plan.
-- [`/ui-design-prompt`](ui-design-prompt/SKILL.md) — generate a UI image-generation prompt from a product plan.
-- [`/ui-implementation-loop`](ui-implementation-loop/SKILL.md) — implement one UI page and refine it against its design panel.
+## Matt workflow
+
+- [`/setup-matt-pocock-skills`](setup-matt-pocock-skills/SKILL.md) — configure the issue tracker and domain-document layout once per repository.
+- [`/grill-with-docs`](grill-with-docs/SKILL.md) — sharpen an idea while maintaining the glossary and ADRs.
+- [`/prototype`](prototype/SKILL.md) — answer an uncertain UI or behavior question with throwaway code.
+- [`/to-spec`](to-spec/SKILL.md) — publish the agreed specification to the issue tracker.
+- [`/to-tickets`](to-tickets/SKILL.md) — split the specification into blocked tracer-bullet tickets.
+- [`/implement`](implement/SKILL.md) — implement one ticket through TDD and code review.
+- [`/tdd`](tdd/SKILL.md) — build behavior in red-green-refactor slices.
+- [`/code-review`](code-review/SKILL.md) — review standards and specification compliance.
+- [`/pr`](pr/SKILL.md) — write the pull-request body.
+- [`/retro`](retro/SKILL.md) — improve the agent environment after delivery.
+
+Supporting upstream skills are `grilling`, `domain-modeling`, `codebase-design`,
+`triage`, and `writing-for-agents`. `triage` also provides the label vocabulary
+used by setup, specifications, and tickets; invoke it directly only for raw
+incoming issues.
+
+## Repository complements
+
+These repository-owned skills fill gaps without redefining Matt's workflow:
+
+- [`/ui-design-prompt`](ui-design-prompt/SKILL.md) — turn agreed product decisions into a UI image-generation prompt.
+- [`/ui-implementation-loop`](ui-implementation-loop/SKILL.md) — implement one UI page and refine it against an approved reference.
+- [`/prepare-pr`](prepare-pr/SKILL.md) — verify, confirm, push, and create the PR using `/pr` for its body.
