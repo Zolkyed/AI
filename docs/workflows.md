@@ -3,19 +3,19 @@
 ![Matt-first project development workflow with decision branches](assets/project-development-workflow-decisions.svg)
 
 The development loop is **Grill → Design if needed → Spec → Tickets → Implement
-one ticket → Review → Prepare PR → CI and AI review → Deliver → Retro**. Every
-implementation requires a GitHub issue.
+one ticket → Review → Open change request → CI and AI review → Deliver →
+Retro**. Every implementation requires an issue in the configured tracker.
 
 Matt Pocock's vendored skills under [`.claude/skills/`](../.claude/skills/) are
 the source of truth for the engineering method. Repository-owned skills only
-fill UI and GitHub-operation gaps. When another agent does not expose the named
+fill UI gaps. When another agent does not expose the named
 slash command, perform the equivalent step from its `SKILL.md`.
 
 ## 0. Configure the Repository
 
 Run [`/setup-matt-pocock-skills`](../.claude/skills/setup-matt-pocock-skills/SKILL.md)
-once. Use GitHub Issues as the tracker, retain the default triage labels, and
-use the domain-document layout appropriate to the repository.
+once. Configure the repository's issue tracker, retain the default triage
+labels, and use the appropriate domain-document layout.
 
 ## 1. Sharpen the Idea
 
@@ -73,7 +73,7 @@ Before ticketing UI implementation:
 ## 3. Publish the Specification and Tickets
 
 Run [`/to-spec`](../.claude/skills/to-spec/SKILL.md) to publish the agreed
-specification as a GitHub issue. Then run
+specification in the configured issue tracker. Then run
 [`/to-tickets`](../.claude/skills/to-tickets/SKILL.md) to propose tracer-bullet
 tickets and blocking edges. Approve the breakdown before it is published.
 
@@ -88,7 +88,7 @@ no implementation is already active. Create its conventionally named branch
 and isolated Worktrunk worktree as described in
 [`docs/agents/README.md`](agents/README.md).
 
-One issue owns one branch, worktree, agent session, and pull request.
+One issue owns one branch, worktree, agent session, and change request.
 
 ## 5. Implement One Ticket
 
@@ -108,16 +108,22 @@ website references without a separate wrapper skill.
 
 ![Build the screen, capture a screenshot, compare it with the design, and refine until it matches](assets/ui-build-verification-loop.png)
 
-## 6. Verify and Open the Pull Request
+## 6. Verify and Open the Change Request
 
 The implementation's final [`/code-review`](../.claude/skills/code-review/SKILL.md)
 checks both documented standards and the originating specification. Resolve its
-findings, then run [`/prepare-pr`](../.claude/skills/prepare-pr/SKILL.md).
+findings, run `pnpm run verify`, and audit the complete branch diff. Use Matt's
+[`/pr`](../.claude/skills/pr/SKILL.md) as the source of truth for the pull- or
+merge-request body.
 
-`/prepare-pr` runs the repository completion check, audits the branch and diff,
-and uses Matt's [`/pr`](../.claude/skills/pr/SKILL.md) as the source of truth for
-the PR body. It shows the title, body, push, and creation actions for approval
-before changing GitHub. The PR must contain `Closes #<issue>`.
+Show the title, body, push command, and creation command for explicit approval
+before changing the remote. After approval, push the branch and open exactly
+one change request with the host-native tool:
+
+- GitHub: `gh pr create`
+- GitLab: `glab mr create`
+
+Use the tracker's supported closing syntax to link the originating issue.
 
 ## 7. CI and AI Review
 
@@ -131,7 +137,8 @@ explicitly addressed.
 
 ## 8. Deliver and Improve
 
-After approval, a human squash-merges the pull request and removes its worktree.
+After approval, a human squash-merges the change request and removes its
+worktree.
 Run [`/retro`](../.claude/skills/retro/SKILL.md) before clearing the completed
 session so navigation, checks, standards, and tooling can improve the next run.
 
@@ -146,7 +153,7 @@ Apply these sources in order:
 
 1. `AGENTS.md`, conventions, architecture documentation, glossary, and ADRs
    define repository and technical constraints.
-2. The GitHub specification and ticket define scope, behavior, platform,
+2. The tracker specification and ticket define scope, behavior, platform,
    viewport, states, and acceptance criteria.
 3. `design/panels.png` defines the approved cross-page system, and
    `design/<page-name>-reference.png` defines the detailed visual target.

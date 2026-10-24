@@ -31,4 +31,3 @@ These repository-owned skills fill gaps without redefining Matt's workflow:
 
 - [`/ui-design-prompt`](ui-design-prompt/SKILL.md) — turn agreed product decisions into a UI image-generation prompt.
 - [`/ui-implementation-loop`](ui-implementation-loop/SKILL.md) — implement one UI page and refine it against an approved reference.
-- [`/prepare-pr`](prepare-pr/SKILL.md) — verify, confirm, push, and create the PR using `/pr` for its body.

@@ -69,8 +69,8 @@
   <text class="label" x="800" y="1736">passed?</text>
 
   <rect class="step" x="580" y="1850" width="440" height="90" />
-  <text class="label" x="800" y="1880">Review &amp; Prepare PR</text>
-  <text class="small" x="800" y="1912">/code-review → verify → /pr → /prepare-pr</text>
+  <text class="label" x="800" y="1880">Review &amp; Open Change Request</text>
+  <text class="small" x="800" y="1912">/code-review → verify → /pr → gh or glab</text>
 
   <polygon class="decision" points="800,1990 1010,2080 800,2170 590,2080" />
   <text class="label" x="800" y="2064">CI and AI review</text>
