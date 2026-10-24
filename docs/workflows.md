@@ -136,10 +136,9 @@ Run [`/retro`](../.claude/skills/retro/SKILL.md) before clearing the completed
 session so navigation, checks, standards, and tooling can improve the next run.
 
 If tickets remain, select another issue from the unblocked frontier and return
-to **Select and Isolate One Ticket**. Use
-[`/retry-issue`](../.claude/skills/retry-issue/SKILL.md) only when an attempt or
-issue definition is unsatisfactory; it requires confirmation before discarding
-changes.
+to **Select and Isolate One Ticket**. Correct an unsatisfactory result at its
+own phase: sharpen unclear decisions, revise the specification or tickets, or
+return an implementation to TDD and code review.
 
 ## Sources of Truth
 
