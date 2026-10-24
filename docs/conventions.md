@@ -60,7 +60,7 @@ Use Conventional Commit prefixes so Release Please can determine versions and ge
 - `chore:`, `ci:`, or `build:` for maintenance work
 - Add `!` before the colon for a breaking change, such as `feat!:`
 
-## Pull Request Titles
+## Change Request Titles
 
 Follow the Conventional Commits format:
 
@@ -83,11 +83,11 @@ refactor!: replace the legacy client
 - TypeScript enforces strict types, import extensions, consistent casing, and compile correctness.
 - Prettier enforces formatting.
 - Commitlint enforces commit message format.
-- CI enforces branch names, pull request titles, tests, linting, typechecking, and the production build.
+- CI enforces branch names, change-request titles, tests, linting, typechecking, and the production build.
 
 ## Enforcement
 
 - Husky and Commitlint validate local commit messages.
-- The PR-conventions workflow validates branch names and the squash commit title that will land on `main`.
+- The host's conventions workflow validates branch names and the squash commit title that will land on `main`.
 - CI runs `pnpm run verify`.
 - Dependabot and Release Please branches are exempt from issue-numbered branch names.

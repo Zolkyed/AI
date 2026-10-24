@@ -124,6 +124,7 @@ Command availability varies by agent, version, and plan. Consult the provider re
 - [`pnpm`](https://pnpm.io/) — fast, disk-efficient Node.js dependency management
 - [`uv`](https://docs.astral.sh/uv/) — Python dependency, project, and virtual environment management
 - [`gh`](https://cli.github.com/manual/) — GitHub issues, pull requests, reviews, and Actions
+- [`glab`](https://docs.gitlab.com/cli/) — GitLab issues, merge requests, reviews, and CI/CD
 - [`rg`](https://github.com/BurntSushi/ripgrep) — fast repository search and file discovery
 - [`fd`](https://github.com/sharkdp/fd) — fast, user-friendly file and directory discovery
 - [`jq`](https://jqlang.org/manual/) — JSON inspection and transformation

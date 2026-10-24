@@ -25,10 +25,20 @@ Supporting upstream skills are `grilling`, `domain-modeling`, `codebase-design`,
 used by setup, specifications, and tickets; invoke it directly only for raw
 incoming issues.
 
+## Herdr integration
+
+- [`/herdr`](herdr/SKILL.md) — inspect and coordinate Herdr workspaces, panes,
+  commands, and agents when running inside Herdr.
+
+The Herdr skill is vendored unchanged from
+[`herdrdev/herdr`](https://github.com/herdrdev/herdr/tree/master/skills/herdr)
+at commit `5608de0608918aba2f9d501e7793b984a0ca9cfa`. Keep it unchanged so it can
+be updated directly from upstream.
+
 ## Repository complements
 
 These repository-owned skills fill gaps without redefining Matt's workflow:
 
+- [`/panel`](panel/SKILL.md) — run an agent-agnostic implementation and review panel through Herdr.
 - [`/ui-design-prompt`](ui-design-prompt/SKILL.md) — turn agreed product decisions into a UI image-generation prompt.
 - [`/ui-implementation-loop`](ui-implementation-loop/SKILL.md) — implement one UI page and refine it against an approved reference.
-- [`/prepare-pr`](prepare-pr/SKILL.md) — verify, confirm, push, and create the PR using `/pr` for its body.

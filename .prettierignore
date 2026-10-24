@@ -5,6 +5,9 @@ coverage/
 pnpm-lock.yaml
 CHANGELOG.md
 
+# Vendored unchanged from herdrdev/herdr.
+.claude/skills/herdr/
+
 # Vendored unchanged from mattpocock/skills.
 .claude/skills/code-review/
 .claude/skills/codebase-design/
