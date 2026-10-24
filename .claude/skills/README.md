@@ -12,6 +12,7 @@ updated directly from upstream.
 - [`/setup-matt-pocock-skills`](setup-matt-pocock-skills/SKILL.md) — configure the issue tracker and domain-document layout once per repository.
 - [`/grill-with-docs`](grill-with-docs/SKILL.md) — sharpen an idea while maintaining the glossary and ADRs.
 - [`/prototype`](prototype/SKILL.md) — answer an uncertain UI or behavior question with throwaway code.
+- [`/diagnosing-bugs`](diagnosing-bugs/SKILL.md) — build a tight reproduction loop before fixing hard bugs or performance regressions.
 - [`/to-spec`](to-spec/SKILL.md) — publish the agreed specification to the issue tracker.
 - [`/to-tickets`](to-tickets/SKILL.md) — split the specification into blocked tracer-bullet tickets.
 - [`/implement`](implement/SKILL.md) — implement one ticket through TDD and code review.
