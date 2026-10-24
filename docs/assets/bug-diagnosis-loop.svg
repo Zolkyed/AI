@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 520" role="img" aria-labelledby="title desc">
+  <title id="title">Bug diagnosis feedback loop</title>
+  <desc id="desc">A six-step loop from a red-capable signal through reproduction, hypotheses, instrumentation, fix, and cleanup.</desc>
+  <defs>
+    <style>
+      .bg { fill: #0f172a; }
+      .card { fill: #1e293b; stroke: #475569; stroke-width: 2; }
+      .signal { fill: #3f1d2e; stroke: #fb7185; stroke-width: 3; }
+      .done { fill: #12372a; stroke: #4ade80; stroke-width: 3; }
+      .title { fill: #f8fafc; font: 700 30px system-ui, sans-serif; text-anchor: middle; }
+      .label { fill: #f8fafc; font: 700 19px system-ui, sans-serif; text-anchor: middle; }
+      .small { fill: #cbd5e1; font: 15px system-ui, sans-serif; text-anchor: middle; }
+      .arrow { fill: none; stroke: #94a3b8; stroke-width: 3; marker-end: url(#head); }
+      .loop { fill: none; stroke: #38bdf8; stroke-width: 3; stroke-dasharray: 8 7; marker-end: url(#blue-head); }
+    </style>
+    <marker id="head" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#94a3b8" />
+    </marker>
+    <marker id="blue-head" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#38bdf8" />
+    </marker>
+  </defs>
+  <rect class="bg" width="1400" height="520" rx="24" />
+  <text class="title" x="700" y="52">/diagnosing-bugs — Tight Feedback Before Theory</text>
+
+  <rect class="signal" x="55" y="120" width="190" height="120" rx="18" />
+  <text class="label" x="150" y="158">1. Build Signal</text>
+  <text class="small" x="150" y="190">Fast • deterministic</text>
+  <text class="small" x="150" y="215">red-capable command</text>
+
+  <rect class="card" x="275" y="120" width="190" height="120" rx="18" />
+  <text class="label" x="370" y="158">2. Reproduce</text>
+  <text class="small" x="370" y="190">Confirm exact symptom</text>
+  <text class="small" x="370" y="215">minimise the case</text>
+
+  <rect class="card" x="495" y="120" width="190" height="120" rx="18" />
+  <text class="label" x="590" y="158">3. Hypotheses</text>
+  <text class="small" x="590" y="190">Rank 3–5 causes</text>
+  <text class="small" x="590" y="215">make each falsifiable</text>
+
+  <rect class="card" x="715" y="120" width="190" height="120" rx="18" />
+  <text class="label" x="810" y="158">4. Instrument</text>
+  <text class="small" x="810" y="190">Test one prediction</text>
+  <text class="small" x="810" y="215">at a time</text>
+
+  <rect class="card" x="935" y="120" width="190" height="120" rx="18" />
+  <text class="label" x="1030" y="158">5. Fix + Test</text>
+  <text class="small" x="1030" y="190">Regression test red</text>
+  <text class="small" x="1030" y="215">then fix to green</text>
+
+  <rect class="done" x="1155" y="120" width="190" height="120" rx="18" />
+  <text class="label" x="1250" y="158">6. Clean Up</text>
+  <text class="small" x="1250" y="190">Original repro green</text>
+  <text class="small" x="1250" y="215">debug artifacts removed</text>
+
+  <path class="arrow" d="M245 180 H265" />
+  <path class="arrow" d="M465 180 H485" />
+  <path class="arrow" d="M685 180 H705" />
+  <path class="arrow" d="M905 180 H925" />
+  <path class="arrow" d="M1125 180 H1145" />
+
+  <path class="loop" d="M1250 250 V350 Q1250 405 1195 405 H205 Q150 405 150 350 V250" />
+  <text class="small" x="700" y="390">If evidence disproves the theory, return to the signal—not to guesswork</text>
+  <text class="small" x="700" y="470">Outcome: confirmed root cause → scoped ticket → /implement → /tdd → /code-review</text>
+</svg>

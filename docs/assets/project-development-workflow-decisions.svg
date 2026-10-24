@@ -26,8 +26,8 @@
   <text class="label" x="800" y="115">Start</text>
 
   <rect class="step" x="580" y="205" width="440" height="90" />
-  <text class="label" x="800" y="240">Grill &amp; Resolve Uncertainty</text>
-  <text class="small" x="800" y="272">/grill-with-docs → /prototype if needed</text>
+  <text class="label" x="800" y="240">Sharpen Idea or Diagnose Bug</text>
+  <text class="small" x="800" y="272">/grill-with-docs or /diagnosing-bugs</text>
 
   <polygon class="decision" points="800,350 980,430 800,510 620,430" />
   <text class="label" x="800" y="430">UI required?</text>

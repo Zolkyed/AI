@@ -2,9 +2,10 @@
 
 ![Matt-first project development workflow with decision branches](assets/project-development-workflow-decisions.svg)
 
-The development loop is **Grill → Design if needed → Spec → Tickets → Implement
-one ticket → Review → Open change request → CI and AI review → Deliver →
-Retro**. Every implementation requires an issue in the configured tracker.
+The development loop is **Grill or Diagnose → Design if needed → Spec → Tickets
+→ Implement one ticket → Review → Open change request → CI and AI review →
+Deliver → Retro**. Every implementation requires an issue in the configured
+tracker.
 
 Matt Pocock's vendored skills under [`.claude/skills/`](../.claude/skills/) are
 the source of truth for the engineering method. Repository-owned skills only
@@ -17,11 +18,19 @@ Run [`/setup-matt-pocock-skills`](../.claude/skills/setup-matt-pocock-skills/SKI
 once. Configure the repository's issue tracker, retain the default triage
 labels, and use the appropriate domain-document layout.
 
-## 1. Sharpen the Idea
+## 1. Sharpen or Diagnose
 
 Run [`/grill-with-docs`](../.claude/skills/grill-with-docs/SKILL.md) for new
 features and complex changes. It sharpens the idea while recording durable
 domain language and architectural decisions.
+
+For a bug, failure, or performance regression, run
+[`/diagnosing-bugs`](../.claude/skills/diagnosing-bugs/SKILL.md). Build a tight,
+red-capable reproduction loop before forming hypotheses, minimise the repro,
+then turn it into a regression test at the highest correct seam. Publish the
+confirmed fix as a scoped ticket before implementing it.
+
+![Build a tight signal, reproduce, test hypotheses, fix, and clean up](assets/bug-diagnosis-loop.svg)
 
 When a question needs a runnable answer, use
 [`/prototype`](../.claude/skills/prototype/SKILL.md). Treat prototype code as
@@ -117,6 +126,8 @@ For rigorous multi-agent verification, run
 review panes and supports any agent kind reported by the installed Herdr CLI,
 including Claude, Codex, Copilot, and OpenCode. Resolve every valid finding
 before opening the change request.
+
+![Panel creates Herdr panes for multiple coding agents and combines their findings](assets/herdr-panel-review.svg)
 
 ![Build the screen, capture a screenshot, compare it with the design, and refine until it matches](assets/ui-build-verification-loop.png)
 
