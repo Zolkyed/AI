@@ -1,7 +1,7 @@
 # Agent Execution
 
 Agent sessions run in isolated Worktrunk worktrees. Each issue owns one branch,
-worktree, primary agent session, and pull request.
+worktree, primary agent session, and change request.
 
 ## Execution Model
 
@@ -17,7 +17,17 @@ Remote development:
 VS Code Remote SSH → herdr multiplexer → Worktrunk worktree → agent AI
 ```
 
-Run `herdr` from the VS Code terminal.
+Run `herdr` from the VS Code terminal. Agents running in a Herdr pane can use
+the repository's [`/herdr`](../../.claude/skills/herdr/SKILL.md) skill to
+inspect and coordinate the current session. The skill requires `HERDR_ENV=1`
+and stops safely when invoked outside Herdr.
+
+Use [`/panel`](../../.claude/skills/panel/SKILL.md) for rigorous multi-agent
+implementation, review, and verification. Panel creates its own sibling panes;
+no split layout is required beforehand. It discovers agent kinds from the
+installed Herdr CLI and can launch Claude, Codex, Copilot, OpenCode, or any
+other kind that version reports. The primary agent itself may use any supported
+kind.
 
 ## Environment
 
@@ -62,12 +72,12 @@ Use sequential development for dependent features, small changes, or work that
 benefits from shared context:
 
 ```text
-issue A → implement → verify → PR
-issue B → implement → verify → PR
+issue A → implement → verify → change request
+issue B → implement → verify → change request
 ```
 
-In both modes, keep one issue, branch, worktree, agent session, and pull request
-together.
+In both modes, keep one issue, branch, worktree, agent session, and change
+request together.
 
 ## Isolation Boundary
 

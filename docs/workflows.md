@@ -88,6 +88,12 @@ no implementation is already active. Create its conventionally named branch
 and isolated Worktrunk worktree as described in
 [`docs/agents/README.md`](agents/README.md).
 
+Launch the primary agent inside Herdr. When the user explicitly requests Herdr
+coordination, use the official [`/herdr`](../.claude/skills/herdr/SKILL.md)
+skill to inspect panes, run commands, or coordinate additional agents. Matt's
+skills remain authoritative for planning, implementation, and review; Herdr
+provides the execution environment.
+
 One issue owns one branch, worktree, agent session, and change request.
 
 ## 5. Implement One Ticket
@@ -105,6 +111,12 @@ For UI tickets, run
 [`/ui-implementation-loop <page-name>`](../.claude/skills/ui-implementation-loop/SKILL.md)
 against the approved reference. Its existing-website mode covers authorized
 website references without a separate wrapper skill.
+
+For rigorous multi-agent verification, run
+[`/panel`](../.claude/skills/panel/SKILL.md). Panel uses Herdr to create its own
+review panes and supports any agent kind reported by the installed Herdr CLI,
+including Claude, Codex, Copilot, and OpenCode. Resolve every valid finding
+before opening the change request.
 
 ![Build the screen, capture a screenshot, compare it with the design, and refine until it matches](assets/ui-build-verification-loop.png)
 
