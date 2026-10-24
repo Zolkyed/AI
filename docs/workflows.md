@@ -1,160 +1,158 @@
 # Workflows
 
-![Project Development Workflow with decision branches](assets/project-development-workflow-decisions.svg)
+![Matt-first project development workflow with decision branches](assets/project-development-workflow-decisions.svg)
 
-The development loop is: **Plan → UI Design → Break Into Features → Build One
-Feature → Self Check → Open PR → AI Code Review → Fix Issues → Deliver.** Every
+The development loop is **Grill → Design if needed → Spec → Tickets → Implement
+one ticket → Review → Prepare PR → CI and AI review → Deliver → Retro**. Every
 implementation requires a GitHub issue.
 
-The named slash commands are committed Claude Code extensions. When using a
-different agent, perform the equivalent step described in this document.
+Matt Pocock's vendored skills under [`.claude/skills/`](../.claude/skills/) are
+the source of truth for the engineering method. Repository-owned skills only
+fill UI and GitHub-operation gaps. When another agent does not expose the named
+slash command, perform the equivalent step from its `SKILL.md`.
 
-## 1. Plan & Describe Project
+## 0. Configure the Repository
 
-For complex work, use [`/project-plan`](../.claude/commands/project-plan.md) to
-define the product, users, scope, flows, architecture, risks, and constraints.
-Approve the result and save it as `PLAN.md`. Small, well-defined changes may
-skip the interview.
+Run [`/setup-matt-pocock-skills`](../.claude/skills/setup-matt-pocock-skills/SKILL.md)
+once. Use GitHub Issues as the tracker, retain the default triage labels, and
+use the domain-document layout appropriate to the repository.
 
-## 2. UI Design
+## 1. Sharpen the Idea
 
-Skip this step for work without a user interface. Choose one source for the UI
-references:
+Run [`/grill-with-docs`](../.claude/skills/grill-with-docs/SKILL.md) for new
+features and complex changes. It sharpens the idea while recording durable
+domain language and architectural decisions.
 
-### Generated Design
+When a question needs a runnable answer, use
+[`/prototype`](../.claude/skills/prototype/SKILL.md). Treat prototype code as
+evidence, not production implementation.
 
-Generate a prompt from the completed plan with the
-[`/ui-design-prompt`](../.claude/skills/ui-design-prompt/SKILL.md) skill:
+Keep discovery, specification, and ticketing in one context when practical so
+the decisions survive intact.
+
+## 2. Approve UI References
+
+Skip this phase when the work has no user interface. Choose one reference
+source before publishing implementation tickets.
+
+### Generated design
+
+Run [`/ui-design-prompt`](../.claude/skills/ui-design-prompt/SKILL.md) from the
+agreed product discussion, specification, or plan:
 
 ```text
-/ui-design-prompt @PLAN.md --aspect-ratio 16:9
+/ui-design-prompt --aspect-ratio 16:9
 ```
 
-Paste it into an image-generation tool. Generate one 16:9 overview with every
-planned page shown as a panel in a shared design system. Save the approved image
-as `design/panels.png`; it is the canonical design reference.
+Generate one overview containing every planned page in a shared design system.
+Save the approved overview as `design/panels.png`.
+
+### Provided design
+
+Use the provided Figma frame or export, screenshot, mockup, or design-system
+specification. Confirm which artifact applies to every required page, viewport,
+and state.
+
+### Authorized existing website
+
+Record the permitted URLs, flows, states, and viewports. Capture complete
+references with browser tooling. Reuse branding, text, imagery, fonts, and
+other protected assets only with explicit authorization.
+
+### Reference completion criterion
+
+Before ticketing UI implementation:
+
+1. Save every complete page as `design/<page-name>-reference.png`, adding
+   viewport or state suffixes where needed.
+2. Save only authorized implementation assets under `design/assets/`.
+3. Obtain approval for the overview and every detailed page reference.
 
 ![Generate the full UI design, upscale one screen, and implement it](assets/ui-design-workflow.png)
 
-### Provided Design
+## 3. Publish the Specification and Tickets
 
-Use a Figma frame or export, screenshot, mockup, or design-system specification
-provided by the user. Confirm which artifact applies to each page, viewport,
-and state. Export complete page references when the provided design does not
-already include them.
+Run [`/to-spec`](../.claude/skills/to-spec/SKILL.md) to publish the agreed
+specification as a GitHub issue. Then run
+[`/to-tickets`](../.claude/skills/to-tickets/SKILL.md) to propose tracer-bullet
+tickets and blocking edges. Approve the breakdown before it is published.
 
-### Existing Website
+Each ticket must deliver a narrow, complete, independently verifiable behavior.
+UI tickets identify their approved references, routes, viewports, states, and
+acceptance criteria.
 
-For an authorized existing website, use browser or Chrome DevTools tooling to
-inspect only the permitted pages and capture complete references at the
-required desktop and mobile viewports. Record the states and interactions that
-the implementation must preserve. Do not copy source code or reuse proprietary
-branding, text, imagery, fonts, or other assets without permission.
+## 4. Select and Isolate One Ticket
 
-### Prepare References
+Select an open ticket from the **frontier**: all its blockers are complete and
+no implementation is already active. Create its conventionally named branch
+and isolated Worktrunk worktree as described in
+[`docs/agents/README.md`](agents/README.md).
 
-Every source must produce approved references before creating implementation
-issues:
+One issue owns one branch, worktree, agent session, and pull request.
 
-1. Save each complete page as
-   `design/<page-name>-reference.png`.
-2. Save any authorized artwork, textures, icons, or images required by the
-   implementation under `design/assets/`.
-3. Add viewport or state suffixes when multiple references would otherwise
-   collide.
+## 5. Implement One Ticket
 
-## 3. Break Into Features
+Run [`/implement <ticket>`](../.claude/skills/implement/SKILL.md). It drives
+[`/tdd`](../.claude/skills/tdd/SKILL.md), runs focused checks during development,
+finishes with the full test suite, invokes
+[`/code-review`](../.claude/skills/code-review/SKILL.md), and commits the result.
 
-Use [`/create-issue`](../.claude/skills/create-issue/SKILL.md) to split the plan
-into verifiable features. For UI, create one issue per page or flow with its
-design assets, target, and acceptance criteria. Use
-[`/whats-next`](../.claude/commands/whats-next.md) to select a ready issue.
+Follow `AGENTS.md`, repository conventions, the issue, glossary, and ADRs. Run
+`pnpm run check` regularly and update documentation made inaccurate by the
+change.
 
-## 4. Build One Feature
-
-Create the issue branch and worktree, enter the agent's `/plan` mode, then run
-[`/start-issue`](../.claude/skills/start-issue/SKILL.md) to prepare a focused
-implementation plan. Approve the plan and leave planning mode before editing.
-Implement only the selected feature and follow [`AGENTS.md`](../AGENTS.md) and
-[the conventions](conventions.md).
-
-For a UI page, run the
-[`/ui-implementation-loop`](../.claude/skills/ui-implementation-loop/SKILL.md)
-skill with the approved reference:
-
-```text
-/ui-implementation-loop <page-name>
-```
-
-The skill implements original UI code, captures the local page at matching
-viewports, compares it with the full reference, and refines it until the
-acceptance criteria pass.
-
-Use
-[`/replicate-web-ui`](../.claude/skills/replicate-web-ui/SKILL.md) as the direct
-entry point when an existing website is the reference; it selects the existing
-website mode of `/ui-implementation-loop` and may re-inspect the authorized
-target while implementing its captured reference.
+For UI tickets, run
+[`/ui-implementation-loop <page-name>`](../.claude/skills/ui-implementation-loop/SKILL.md)
+against the approved reference. Its existing-website mode covers authorized
+website references without a separate wrapper skill.
 
 ![Build the screen, capture a screenshot, compare it with the design, and refine until it matches](assets/ui-build-verification-loop.png)
 
-## 5. Self Check
+## 6. Verify and Open the Pull Request
 
-Run checks while implementing:
+The implementation's final [`/code-review`](../.claude/skills/code-review/SKILL.md)
+checks both documented standards and the originating specification. Resolve its
+findings, then run [`/prepare-pr`](../.claude/skills/prepare-pr/SKILL.md).
 
-```sh
-pnpm run check
-```
+`/prepare-pr` runs the repository completion check, audits the branch and diff,
+and uses Matt's [`/pr`](../.claude/skills/pr/SKILL.md) as the source of truth for
+the PR body. It shows the title, body, push, and creation actions for approval
+before changing GitHub. The PR must contain `Closes #<issue>`.
 
-For UI work, confirm the screenshot meets the approved visual, functional,
-responsive, and accessibility criteria. **Identical** does not require literal
-pixel equality when a difference is justified. Review the diff and observable
-behavior before requesting review.
+## 7. CI and AI Review
 
-## 6. Open the Pull Request
+CI runs `pnpm run verify`. After
+[automatic AI review is configured](repository-settings.md#automatic-ai-review),
+CodeRabbit reviews bugs, security, tests, edge cases, conventions, and scope.
 
-Run [`/finish-issue`](../.claude/skills/finish-issue/SKILL.md) to revalidate the
-issue, update affected documentation, run `pnpm run verify`, audit the diff,
-and create the Conventional Commit. Then run
-[`/prepare-pr`](../.claude/skills/prepare-pr/SKILL.md) to verify the branch and
-create a pull request containing `Closes #<issue>`.
+Apply valid findings, rerun the relevant focused checks and `pnpm run verify`,
+push the fixes, and repeat until CI passes and every finding is resolved or
+explicitly addressed.
 
-## 7. AI Code Review
+## 8. Deliver and Improve
 
-After [automatic AI review is configured](repository-settings.md#automatic-ai-review),
-CodeRabbit reviews the pull request for bugs, security issues, missing tests,
-edge cases, convention violations, and unnecessary changes.
+After approval, a human squash-merges the pull request and removes its worktree.
+Run [`/retro`](../.claude/skills/retro/SKILL.md) before clearing the completed
+session so navigation, checks, standards, and tooling can improve the next run.
 
-## 8. Fix Issues
-
-Apply valid findings, rerun the relevant checks, and push the fixes. Repeat the
-CodeRabbit review loop until all findings are resolved or explicitly addressed.
-
-## 9. Finish and Deliver
-
-After CI passes, CodeRabbit findings are resolved, and approval is complete, a
-human squash-merges the pull request and removes the worktree.
-
-If features remain, use [`/whats-next`](../.claude/commands/whats-next.md) and
-return to **Build One Feature**. The project is complete when all planned
-features are implemented, reviewed, verified, documented, and delivered. Use
+If tickets remain, select another issue from the unblocked frontier and return
+to **Select and Isolate One Ticket**. Use
 [`/retry-issue`](../.claude/skills/retry-issue/SKILL.md) only when an attempt or
 issue definition is unsatisfactory; it requires confirmation before discarding
 changes.
 
 ## Sources of Truth
 
-- `AGENTS.md`, conventions, and architecture documentation define repository
-  constraints and technical decisions.
-- The `GitHub issue` defines scope, behavior, target platform, viewport, states,
-  and acceptance criteria.
-- `design/panels.png` defines the approved cross-page design, while
-  `design/<page-name>-reference.png` defines the detailed visual target.
-- Tests and required checks define executable verification and protect existing
-  behavior.
-- Files under `design/assets/` support the implementation; they are not visual
-  references.
+Apply these sources in order:
 
-Validate against the issue, visual target, and tests. If they conflict, preserve
-repository constraints and functional or accessibility requirements, then
-report the conflict instead of guessing.
+1. `AGENTS.md`, conventions, architecture documentation, glossary, and ADRs
+   define repository and technical constraints.
+2. The GitHub specification and ticket define scope, behavior, platform,
+   viewport, states, and acceptance criteria.
+3. `design/panels.png` defines the approved cross-page system, and
+   `design/<page-name>-reference.png` defines the detailed visual target.
+4. Tests and required checks provide executable verification.
+5. Files under `design/assets/` support implementation; they are not references.
+
+Functional and accessibility requirements remain authoritative over visual
+fidelity. Report conflicting sources instead of guessing.
