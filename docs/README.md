@@ -5,7 +5,7 @@ Use this index to find the repository's authoritative development and design gui
 ## Development
 
 - [Development workflow](development.md) — setup, commands, verification, and debugging
-- [Conventions](conventions.md) — TypeScript, naming, testing, branches, commits, and pull request titles
+- [Conventions](conventions.md) — TypeScript, naming, testing, branches, commits, and change-request titles
 - [Repository settings](repository-settings.md) — GitHub merge, ruleset, Actions, AI review, and security configuration
 - [Workflows](workflows.md) — planning, issues, implementation, review, and delivery
 - [Agent execution](agents/README.md) — sessions, worktrees, environment, and development modes
@@ -27,14 +27,14 @@ Use this index to find the repository's authoritative development and design gui
 Keep each rule in its canonical document and link to it elsewhere instead of
 maintaining competing copies:
 
-| Topic                                               | Canonical document                            |
-| --------------------------------------------------- | --------------------------------------------- |
-| Setup, commands, and verification                   | [Development](development.md)                 |
-| Branches, commits, pull requests, code, and testing | [Conventions](conventions.md)                 |
-| Issue-to-delivery lifecycle                         | [Workflows](workflows.md)                     |
-| Worktrees and agent sessions                        | [Agent execution](agents/README.md)           |
-| GitHub repository configuration                     | [Repository settings](repository-settings.md) |
-| System boundaries and technical decisions           | [Architecture](architecture/README.md)        |
+| Topic                                                 | Canonical document                            |
+| ----------------------------------------------------- | --------------------------------------------- |
+| Setup, commands, and verification                     | [Development](development.md)                 |
+| Branches, commits, change requests, code, and testing | [Conventions](conventions.md)                 |
+| Issue-to-delivery lifecycle                           | [Workflows](workflows.md)                     |
+| Worktrees and agent sessions                          | [Agent execution](agents/README.md)           |
+| GitHub repository configuration                       | [Repository settings](repository-settings.md) |
+| System boundaries and technical decisions             | [Architecture](architecture/README.md)        |
 
 When a configuration file is executable—for example `package.json` scripts or
 a GitHub Actions workflow—it is the final authority. Update its canonical

@@ -8,7 +8,7 @@ Retro**. Every implementation requires an issue in the configured tracker.
 
 Matt Pocock's vendored skills under [`.claude/skills/`](../.claude/skills/) are
 the source of truth for the engineering method. Repository-owned skills only
-fill UI gaps. When another agent does not expose the named
+fill UI and agent-orchestration gaps. When another agent does not expose the named
 slash command, perform the equivalent step from its `SKILL.md`.
 
 ## 0. Configure the Repository

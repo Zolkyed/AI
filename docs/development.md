@@ -52,7 +52,7 @@ verify → check + build
 1. Make the smallest complete change.
 2. Run `pnpm run check` during development.
 3. Use `pnpm run fix` for automatically repairable failures.
-4. Run `pnpm run verify` before committing or opening a pull request.
+4. Run `pnpm run verify` before committing or opening a change request.
 
 CI runs `pnpm run verify`, so a local passing result should match the repository's completion gate.
 
