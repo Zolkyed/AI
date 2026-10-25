@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.1](https://github.com/Zolkyed/AI/compare/v1.5.0...v1.5.1) (2026-10-25)
+
+
+### 🔧 Maintenance
+
+* **deps:** bump the pnpm-minor-and-patch group across 1 directory with 8 updates ([#111](https://github.com/Zolkyed/AI/issues/111)) ([1e2cd5c](https://github.com/Zolkyed/AI/commit/1e2cd5c26f549073f3a21879ffbabab33b696282))
+
 ## [1.5.0](https://github.com/Zolkyed/AI/compare/v1.4.0...v1.5.0) (2026-10-25)
 
 
