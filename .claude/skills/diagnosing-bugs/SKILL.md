@@ -111,28 +111,39 @@ Tool preference:
 
 **Perf branch.** For performance regressions, logs are usually wrong. Instead: establish a baseline measurement (timing harness, `performance.now()`, profiler, query plan), then bisect. Measure first, fix second.
 
-## Phase 5: Fix + regression test
+## Phase 5: Publish the diagnosis
 
-Write the regression test **before the fix**, but only if there is a **correct seam** for it.
+Do not apply the production fix. Leave implementation and the regression test to `/implement` on the issue branch.
 
-A correct seam is one where the test exercises the **real bug pattern** as it occurs at the call site. If the only available seam is too shallow (single-caller test when the bug needs multiple callers, unit test that can't replicate the chain that triggered the bug), a regression test there gives false confidence.
+Before publishing, remove all `[DEBUG-...]` instrumentation and throwaway prototypes created during diagnosis. Preserve the user's existing changes. The issue must contain enough evidence to reproduce the bug without relying on leftover diagnostic edits.
 
-**If no correct seam exists, that itself is the finding.** Note it. The codebase architecture is preventing the bug from being locked down. Flag this for the next phase.
+On GitHub or GitLab, use an applicable repository **bug** issue template, including its configured labels, and complete its required sections. A feature template is not applicable. Use only labels configured by the selected bug template; never create labels. If no applicable repository bug template is available, use the fallback bug template below without labels.
 
-If a correct seam exists:
+Publish one scoped bug issue containing the exact symptom, the red-capable reproduction command and redacted output, the minimised reproduction, the confirmed cause and supporting evidence, the correct regression-test seam or its absence, and acceptance criteria for the fix. Report the issue reference, then stop.
 
-1. Turn the minimised repro into a failing test at that seam.
-2. Watch it fail. If you forced the red by mutating code or a fixture, `diff` against a pristine copy to prove the mutation landed before you trust it.
-3. Apply the fix.
-4. Watch it pass.
-5. Re-run the Phase 1 feedback loop against the original (un-minimised) scenario.
+<fallback-bug-template>
 
-## Phase 6: Cleanup
+## Problem
 
-Required before declaring done:
+The exact user-visible symptom and its impact.
 
-- [ ] Original repro no longer reproduces (re-run the Phase 1 loop)
-- [ ] Regression test passes (or absence of seam is documented)
-- [ ] All `[DEBUG-...]` instrumentation removed (`grep` the prefix)
-- [ ] Throwaway prototypes deleted (or moved to a clearly-marked debug location)
-- [ ] The hypothesis that turned out correct is stated in the commit / PR message, so the next debugger learns
+## Reproduction
+
+The minimal reproduction steps, the red-capable command, and its redacted failing output.
+
+## Confirmed cause
+
+The confirmed root cause and the evidence that ruled out the other hypotheses.
+
+## Testing approach
+
+The correct regression-test seam, or why no correct seam currently exists.
+
+## Acceptance criteria
+
+- [ ] Add the regression test at the identified seam, or establish that seam first.
+- [ ] Fix the confirmed cause.
+- [ ] Make the regression test and original reproduction pass.
+- [ ] Remove any implementation-time diagnostic instrumentation.
+
+</fallback-bug-template>
