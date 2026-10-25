@@ -1,6 +1,6 @@
 # Workflows
 
-![Matt-first project development workflow with decision branches](assets/project-development-workflow-decisions.svg)
+![AI development workflow from repository setup through delivery and retrospective](assets/ai-development-workflow-flowchart.png)
 
 The development loop is **Grill or Diagnose → Design if needed → Spec → Tickets
 → Implement one ticket → Review → Open change request → CI and AI review →
@@ -117,7 +117,7 @@ Follow `AGENTS.md`, repository conventions, the issue, glossary, and ADRs. Run
 change.
 
 For UI tickets, run
-[`/ui-implementation-loop <page-name>`](../.claude/skills/ui-implementation-loop/SKILL.md)
+[`/ui-implement <page-name>`](../.claude/skills/ui-implement/SKILL.md)
 against the approved reference. Its existing-website mode covers authorized
 website references without a separate wrapper skill.
 
