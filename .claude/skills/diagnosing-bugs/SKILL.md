@@ -111,7 +111,7 @@ Tool preference:
 
 **Perf branch.** For performance regressions, logs are usually wrong. Instead: establish a baseline measurement (timing harness, `performance.now()`, profiler, query plan), then bisect. Measure first, fix second.
 
-## Phase 5: Publish the diagnosis
+## Publication gate
 
 Do not apply the production fix. Leave implementation and the regression test to `/implement` on the issue branch.
 
@@ -147,3 +147,31 @@ The correct regression-test seam, or why no correct seam currently exists.
 - [ ] Remove any implementation-time diagnostic instrumentation.
 
 </fallback-bug-template>
+
+The remaining phases are the implementation handoff for `/implement`; do not perform them during diagnosis.
+
+## Phase 5: Fix + regression test
+
+Write the regression test **before the fix**, but only if there is a **correct seam** for it.
+
+A correct seam is one where the test exercises the **real bug pattern** as it occurs at the call site. If the only available seam is too shallow (single-caller test when the bug needs multiple callers, unit test that can't replicate the chain that triggered the bug), a regression test there gives false confidence.
+
+**If no correct seam exists, that itself is the finding.** Note it. The codebase architecture is preventing the bug from being locked down. Flag this for the next phase.
+
+If a correct seam exists:
+
+1. Turn the minimised repro into a failing test at that seam.
+2. Watch it fail. If you forced the red by mutating code or a fixture, `diff` against a pristine copy to prove the mutation landed before you trust it.
+3. Apply the fix.
+4. Watch it pass.
+5. Re-run the Phase 1 feedback loop against the original (un-minimised) scenario.
+
+## Phase 6: Cleanup
+
+Required before declaring done:
+
+- [ ] Original repro no longer reproduces (re-run the Phase 1 loop)
+- [ ] Regression test passes (or absence of seam is documented)
+- [ ] All `[DEBUG-...]` instrumentation removed (`grep` the prefix)
+- [ ] Throwaway prototypes deleted (or moved to a clearly-marked debug location)
+- [ ] The hypothesis that turned out correct is stated in the commit / PR message, so the next debugger learns
