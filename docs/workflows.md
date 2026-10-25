@@ -1,6 +1,6 @@
 # Workflows
 
-![Matt-first project development workflow with decision branches](assets/project-development-workflow-decisions.svg)
+![AI development workflow from repository setup through delivery and retrospective](assets/ai-development-workflow-flowchart.png)
 
 The development loop is **Grill or Diagnose → Design if needed → Spec → Tickets
 → Implement one ticket → Review → Open change request → CI and AI review →
