@@ -42,4 +42,4 @@ These repository-owned skills fill gaps without redefining Matt's workflow:
 
 - [`/panel`](panel/SKILL.md) — run an agent-agnostic implementation and review panel through Herdr.
 - [`/ui-design-prompt`](ui-design-prompt/SKILL.md) — turn agreed product decisions into a UI image-generation prompt.
-- [`/ui-implementation-loop`](ui-implementation-loop/SKILL.md) — implement one UI page and refine it against an approved reference.
+- [`/ui-implement`](ui-implement/SKILL.md) — implement one UI page and refine it against an approved reference.

@@ -1,9 +1,9 @@
 ---
-name: ui-implementation-loop
+name: ui-implement
 description: Implement one UI page from an approved generated design, a user-provided design artifact, or an authorized existing website, then iteratively refine it through matched-viewport screenshot comparison.
 ---
 
-# UI Implementation Loop
+# UI Implement
 
 Implement one page at a time and refine it against an approved visual reference.
 The reference may come from a generated design, a user-provided design artifact,
