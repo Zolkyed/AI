@@ -29,7 +29,7 @@ Describe **what** the system should do, not **how** to implement it. The agent w
 
 The agent needs to know when it's done. Every agent brief must have concrete, testable acceptance criteria. Each criterion should be independently verifiable.
 
-- **Good:** "Running `gh issue list --label needs-triage` returns issues that have been through initial classification"
+- **Good:** "The triage view lists issues that have been through initial classification"
 - **Bad:** "Triage should work correctly"
 
 ### Explicit scope boundaries
@@ -113,8 +113,8 @@ and append "..." to indicate truncation.
 **Summary:** Add `.out-of-scope/` directory support for tracking rejected feature requests
 
 **Current behavior:**
-When a feature request is rejected, the issue is closed with a `wontfix` label
-and a comment. There is no persistent record of the decision or reasoning.
+When a feature request is rejected, the issue is closed with a comment. There
+is no persistent record of the decision or reasoning.
 Future similar requests require the maintainer to recall or search for the
 prior discussion.
 
@@ -132,7 +132,7 @@ checked for matches.
   and match incoming issues against them by concept similarity
 
 **Acceptance criteria:**
-- [ ] Closing a feature as wontfix creates/updates a file in `.out-of-scope/`
+- [ ] Rejecting a feature creates or updates a file in `.out-of-scope/`
 - [ ] The file includes the decision, reasoning, and link to the closed issue
 - [ ] If a matching `.out-of-scope/` file already exists, the new issue is
       appended to its "Prior requests" list rather than creating a duplicate

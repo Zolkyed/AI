@@ -22,8 +22,7 @@ updated directly from upstream.
 - [`/retro`](retro/SKILL.md) — improve the agent environment after delivery.
 
 Supporting upstream skills are `grilling`, `domain-modeling`, `codebase-design`,
-`triage`, and `writing-for-agents`. `triage` also provides the label vocabulary
-used by setup, specifications, and tickets; invoke it directly only for raw
+`triage`, and `writing-for-agents`. Invoke `triage` directly only for raw
 incoming issues.
 
 ## Herdr integration
