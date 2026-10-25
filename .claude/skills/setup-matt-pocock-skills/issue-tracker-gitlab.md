@@ -18,7 +18,7 @@ Infer the repo from `git remote -v`; `glab` does this automatically when run ins
 
 **MRs as a request surface: no.** _(Set to `yes` if this repo treats external merge requests as feature requests; `/triage` reads this flag.)_
 
-When set to `yes`, MRs run through the same labels and states as issues, using the `glab mr` equivalents:
+When set to `yes`, MRs run through the same triage workflow as issues, using the `glab mr` equivalents:
 
 - **Read an MR**: `glab mr view <number> --comments` and `glab mr diff <number>` for the diff.
 - **List external MRs for triage**: `glab mr list -F json`, then keep only MRs whose author is not a project member/owner (a contributor's MR, not a maintainer's in-flight work).
